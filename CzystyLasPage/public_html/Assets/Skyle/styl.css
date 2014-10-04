@@ -8,6 +8,10 @@ and open the template in the editor.
     Author     : ldabek
 */
 
+body
+{
+    background-color: #090b03;
+}
 
 .buttonHolder
 {
@@ -60,29 +64,55 @@ and open the template in the editor.
     width: 1152px;
     height: 320px;
     
-    background-image: url(../Images/banner.png);
-    background-repeat: no-repeat;
+    background-image: url(../Images/logo_top.png), url(../Images/banner.png);
+    background-repeat: no-repeat, no-repeat;
     background-position: center, center;
     
     margin: 0 auto;
 }
 
+.spaceer
+{
+    width: 1152px;
+    height: 2px;
+    background-color: rgba(0,0,0,0.7);
+    
+    margin: 0 auto;
+}
+
+p
+{
+    font-family: tahoma;
+    font-stretch: 130%;
+    padding: 5px 10px 5px 10px;
+    margin: 0 0 0 0; 
+}
+
+.title
+{
+    color: #acdb3f;
+    font-size: 40px;
+    text-align: center;
+}
+.news
+{
+    color: #bccb89;
+    text-align: center;
+}
 .container
 {
     width: 1152px;
     height: 980px;
-    background-image: url(../Images/bg_top.png), url(../Images/bg_element1.png) ,url(../Images/bg_fill.png);
-    background-repeat: no-repeat, no-repeat ,repeat-y;
+    background-image: url(../Images/bg_element1.png) ,url(../Images/bg_fill.png);
+    background-repeat: no-repeat ,repeat-y;
 
-     margin: 0 auto;
+    margin: 0 auto;
 }
 
 .content
 {
     background-color: rgba(0,0,0,0.7);
-    width: 750px;
+    width: 600px;
     height: 700px;
-    
-    padding-top: 100px;
-    margin: 0 auto;
+    margin: 100px auto;
 }
