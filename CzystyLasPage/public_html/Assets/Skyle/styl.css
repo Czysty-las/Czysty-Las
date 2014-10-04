@@ -60,8 +60,8 @@ and open the template in the editor.
     width: 1152px;
     height: 320px;
     
-    background-image: url(../Images/logo_top.png), url(../Images/banner.png);
-    background-repeat: no-repeat, no-repeat;
+    background-image: url(../Images/banner.png);
+    background-repeat: no-repeat;
     background-position: center, center;
     
     margin: 0 auto;
