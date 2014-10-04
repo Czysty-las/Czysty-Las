@@ -1,0 +1,88 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2014-10-04, 20:51:35
+    Author     : ldabek
+*/
+
+
+.buttonHolder
+{
+    width: 960px;
+    height: 100px;
+    margin: 0 auto;
+}
+
+.button
+{
+    width: 160px;
+    height: 100px;
+    display: block;
+    float: left;
+    background-size: 100% 100%;
+}
+
+#news
+{
+    background-image: url(../Images/button1.png);
+}
+
+#gallery
+{
+     background-image: url(../Images/button2.png);
+}
+
+#InForest
+{
+     background-image: url(../Images/button3.png);
+}
+
+#callender
+{
+     background-image: url(../Images/button4.png);
+}
+
+#contact
+{
+      background-image: url(../Images/button5.png);
+}
+
+#UpCycling
+{
+      background-image: url(../Images/button6.png);
+}
+
+.baner
+{
+    width: 1152px;
+    height: 320px;
+    
+    background-image: url(../Images/logo_top.png), url(../Images/banner.png);
+    background-repeat: no-repeat, no-repeat;
+    background-position: center, center;
+    
+    margin: 0 auto;
+}
+
+.container
+{
+    width: 1152px;
+    height: 980px;
+    background-image: url(../Images/bg_top.png), url(../Images/bg_element1.png) ,url(../Images/bg_fill.png);
+    background-repeat: no-repeat, no-repeat ,repeat-y;
+
+     margin: 0 auto;
+}
+
+.content
+{
+    background-color: rgba(0,0,0,0.7);
+    width: 750px;
+    height: 700px;
+    
+    padding-top: 100px;
+    margin: 0 auto;
+}
