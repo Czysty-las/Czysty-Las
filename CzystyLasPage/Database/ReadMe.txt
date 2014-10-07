@@ -1,5 +1,7 @@
-W katalogu wampa od MySQl(wamp\bin\mysql\mysql5.6.17) w pliku my.ini linia 38 zmieniæ na:
+W katalogu wampa od MySQl(wamp\bin\mysql\mysql5.6.17) w pliku my.ini 
+linia 38 zmieniæ na:
 datadir=katalog gdzie znajduje siê u was lokalnie projekt/Czysty-Las/CzystyLasPage/Database
+jak i [wampmysqld] na [wampmysqld64] w lini 26
 
 Sprawi to, ¿e pliki z baz¹ danych bêd¹ pod opieka gita. Co oszczêdzi nam ich podmienianie w przysz³oœci. 
 Zadanie to przejmie za nas GIT. 
