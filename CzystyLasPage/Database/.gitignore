@@ -1,0 +1,4 @@
+mysql-bin.*
+ibdata*
+ib_logfile*
+Uki.*
