@@ -2,3 +2,5 @@ mysql-bin.*
 ibdata*
 ib_logfile*
 Uki.*
+/performance_schema
+/mysql
