@@ -197,6 +197,15 @@ p
     margin: 0 0 0 0; 
 }
 
+.container
+{
+    width: 1152px;
+    height: 980px;
+    background-image: url(../Images/bg_element1.png) ,url(../Images/bg_fill.png);
+    background-repeat: no-repeat ,repeat-y;
+
+    margin: 0 auto;
+}
 
 
 

@@ -19,15 +19,6 @@ and open the template in the editor.
     color: #bccb89;
     text-align: center;
 }
-.container
-{
-    width: 1152px;
-    height: 980px;
-    background-image: url(../Images/bg_element1.png) ,url(../Images/bg_fill.png);
-    background-repeat: no-repeat ,repeat-y;
-
-    margin: 0 auto;
-}
 
 .content
 {
