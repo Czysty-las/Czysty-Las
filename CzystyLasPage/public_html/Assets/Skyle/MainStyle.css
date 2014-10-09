@@ -34,9 +34,19 @@ body
     background-image: url(../Images/button1.png);
 }
 
+#news:hover
+{
+    background-image: url(../Images/button1b.png);
+}
+
 #gallery
 {
      background-image: url(../Images/button2.png);
+}
+
+#gallery:hover
+{
+    background-image: url(../Images/button2b.png)
 }
 
 #InForest
@@ -44,9 +54,19 @@ body
      background-image: url(../Images/button3.png);
 }
 
+#InForest:hover
+{
+     background-image: url(../Images/button3b.png);
+}
+
 #callender
 {
      background-image: url(../Images/button4.png);
+}
+
+#callender:hover
+{
+     background-image: url(../Images/button5b.png);
 }
 
 #contact
@@ -54,11 +74,20 @@ body
       background-image: url(../Images/button5.png);
 }
 
+#contact:hover
+{
+      background-image: url(../Images/button6b.png);
+}
+
 #UpCycling
 {
       background-image: url(../Images/button6.png);
 }
 
+#UpCycling:hover
+{
+      background-image: url(../Images/button7b.png);
+}
 .socialNetworks
 {
     margin: 100px auto;
@@ -84,6 +113,14 @@ body
     background-position: 125px 0px;
 }
 
+#Facebook:hover
+{
+    margin: 110px auto 0px 0px;
+    background: url(../Images/fb_button2.png);
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: 125px 0px;}
+
 #twitter
 {
     margin: 30px auto 0px 0px;
@@ -93,10 +130,30 @@ body
     background-position: 50px 0px;   
 }
 
+#twitter:hover
+{
+    margin: 30px auto 0px 0px;
+    background: url(../Images/twit_button2.png);
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: 50px 0px;   
+}
+
 #YouTube
 {
     margin: 55px auto 0px 0px;
     background: url(../Images/yt_button.png);
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: 80px 0px;
+    
+    height: 80px
+}
+
+#YouTube:hover
+{
+    margin: 55px auto 0px 0px;
+    background: url(../Images/yt_button2.png);
     background-size: auto 100%;
     background-repeat: no-repeat;
     background-position: 80px 0px;
@@ -116,6 +173,14 @@ body
     margin: 0 auto;
 }
 
+.indexLink
+{
+    height: 100%;
+    width: 100%;
+    
+    display: block;
+}
+
 .spaceer
 {
     width: 1152px;
@@ -128,7 +193,6 @@ body
 p
 {
     font-family: tahoma;
-    font-stretch: 130%;
     padding: 5px 10px 5px 10px;
     margin: 0 0 0 0; 
 }
