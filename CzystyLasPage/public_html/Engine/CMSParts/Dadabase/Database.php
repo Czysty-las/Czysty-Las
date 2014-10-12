@@ -20,7 +20,7 @@ class Database
     private $selectedDatabase   ='';
 
 
-    public function __construct($_ip , $_user, $_password) 
+    public function __construct($_ip , $_user, $_password, $_database) 
     {
         $this->ip = $_ip;
         $this->user = $_user;
@@ -29,6 +29,8 @@ class Database
         $this->conection = 
         @mysql_connect($this->ip,  $this->user = $_user,  $this->password = $_password)
                 or die('Conection faild...');
+        
+        $this->SelectDatabase($_database);
     }
     
     public function SelectDatabase($_chois)
@@ -57,24 +59,6 @@ class Database
         return $table;
     }
     
-    public function AddUser($_Name, $_Surname, $_Email, $_Rights) 
-    {
-        echo $_Name;
-        
-        $q = "INSERT INTO `czysty-las-database`.`users` (`Id`, `Name`, `Surname`, `Email`, `Rights`, `RegisterCode`) VALUES (NULL, '$_Name', '$_Surname', '$_Email', '$_Rights', '123aavv');";
-        echo $q;
-        $ins = mysql_query($q);
-         
-        if($ins)
-        {
-            echo 'Dodane';
-        }
-        else
-        {
-            echo'NieDodane';
-        }
-        
-    }
 
 }
 ?>

@@ -3,41 +3,41 @@
 include './CMSParts/Dadabase/Database.php';
 include './CMSParts/UsersMenager/UsersMenager.php';
 
+session_start();
 
-
-if(empty($_SESSION['users']) && empty($_SESSION['database']))
-{
-    session_start();
-    echo'skisłeś!';
-
-    $_SESSION['database'] = new Database('127.0.0.1', 'root', '');
-    $_SESSION['database']->SelectDatabase("czysty-las-database");
-    $_SESSION['users'] = new UsersMenager($_SESSION['database']->SelectTable("users"));
-}
-/*
-$_database = new Database('127.0.0.1', 'root', '');
-
-$_database->SelectDatabase("czysty-las-database");
-
-$users =  new UsersMenager($_database->SelectTable("users"));
-*/
+$db = new Database('127.0.0.1', 'root', '', 'czysty-las-database');
     
-if(!empty($_POST['Name']))
+if(!empty($_POST['function']))
 {
-    echo 'sad';
-    $_SESSION['database']->AddUser($_POST['Name'], $_POST['Surname'], $_POST['Email'], $_POST['Rights']);
+    switch ($_POST['function'])
+    {
+        case 'add':
+            $_SESSION['users']->AddUser($_POST['Name'], $_POST['Surname'], $_POST['Email'], $_POST['Rights']);
+            break;
+        case 'delete':
+            $_SESSION['users']->DeleteUser($_POST['Id']);
+            break;
+        case 'edit':
+            $_SESSION['users']->EditUser($_POST['Id'], $_POST['Name'], $_POST['Surname'], $_POST['Email'], $_POST['Rights']);
+            break;
+    }
+       header( 'Location: CMS.php' ) ;
 }
-echo '<html>'
-        . '<head>';
-        include './CMSParts/Head.html';
-    echo '</head>';
-    echo '<body>';
-    
-    echo '<div class="mainContainer">';
-        include './CMSParts/Cards.html';
-            echo ' <div class="Content">';
-            $_SESSION['users']->printUsers();
+ else
+{
+    echo '<html>'
+            . '<head>';
+            include './CMSParts/Head.html';
+        echo '</head>';
+        echo '<body>';
+
+        echo '<div class="mainContainer">';
+            include './CMSParts/Cards.html';
+                echo ' <div class="Content">';
+                $_SESSION['users']->printUsers();
+                echo '</div>';
             echo '</div>';
-        echo '</div>';
-    echo '</body>';
-echo '</htam>';
+        echo '</body>';
+    echo '</htam>';
+}
+?>
