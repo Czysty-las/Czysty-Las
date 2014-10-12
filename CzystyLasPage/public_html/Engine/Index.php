@@ -1,18 +1,21 @@
 <?php
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/*
+ * Skrypt w przyszłości ma odpowiadać za logowanie. 
  */
+
+/*
+ * Doinkludowanie odpowienich plików php.
+ */
+
 include './CMSParts/Dadabase/Database.php';
 include './CMSParts/UsersMenager/UsersMenager.php';
 
-session_start();
+session_start();    // Rozpoczęcie sesji. 
 
     
-$_SESSION['users'] = new UsersMenager();
+$_SESSION['users'] = new UsersMenager();    //  Utworzenie nowego Menadrzera urzytkowników.
 
-header( 'Location: CMS.php' ) ;
+header( 'Location: CMS.php' ) ; //  Przełączenie do właściwego interfejsu zarządzania.
 
 ?>

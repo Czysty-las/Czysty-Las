@@ -1,36 +1,35 @@
 <?php
 
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
  * Description of UsersMenager
  *
  * @author Lukasz
  */
-/*
-$_Name = $_POST['Name']; 
-$_Surname = $_POST['Surname']; 
-$_Email = $_POST['Email']; 
-$_Rights = $_POST['Rights'];*/
+
 class UsersMenager 
 {
     private $users;
     private $print;
     private $table;
     private $ColsNames = array('Id', 'Name', 'Surname', 'Email', 'Rights', 'Login', 'Password');
-        
+    
+    /*
+     * Funkcja generuje tabele, która umoźliwaia dodawanie usuwanie, jak i edycję urzytkowników.
+     */
+    
     public function printUsers()
     {
+        //  Początek generowanie tabeli.
         echo '<table>';
         echo '<tr>';
             echo '<td>Imie</td><td>Nazwisko</td><td>Email</td><td>Uprawnienia</td><td>Login</td><td>Hasło</td><td>Operacje</td>';
         echo '</tr>';
         
-        $this->users = mysql_query('SELECT * FROM users');
+        //  Składnie zapytania
+        $q = 'SELECT * FROM users';
+        $this->users = mysql_query($q); //  Wysłanie zapytania.
+        
+        //  Pętla generaująca poszczególne wiersze reprezentujące dodanych urzytkowników.
         
         while($print = mysql_fetch_array($this->users))
         {
@@ -48,30 +47,37 @@ class UsersMenager
         echo '</table>';
     }
     
-    public function AddUser($_Name, $_Surname, $_Email, $_Rights) 
+    /*
+     * Funkcja wykonuje zapytanie do bazy danych, które dodaje urzytkowników.
+     */
+    
+    public function AddUser($_Name, $_Surname, $_Email, $_Rights, $_Login, $_Password) 
     {
-        $q = "INSERT INTO `czysty-las-database`.`users` (`Id`, `Name`, `Surname`, `Email`, `Rights`, `RegisterCode`) VALUES (NULL, '$_Name', '$_Surname', '$_Email', '$_Rights', '123aavv');";
-        $ins = mysql_query($q);
+        // Składnia zapytania.
+        $q = "INSERT INTO `czysty-las-database`.`users` (`Id`, `Name`, `Surname`, `Email`, `Rights`, `RegisterCode`, `Login`, `Password`) VALUES (NULL, '$_Name', '$_Surname', '$_Email', '$_Rights', '123aavv', '$_Login', '$_Password');";
+        $ins = mysql_query($q); //  Wysłanie zapytania.
     }
     
-    public function EditUser($_Id, $_Name, $_Surname, $_Email, $_Rights)
+    /*
+     * Funkcaj wykonuje zapytanie do bazy danych, które edeytyje rekord o wzkazanym Id.
+     */
+    
+    public function EditUser($_Id, $_Name, $_Surname, $_Email, $_Rights, $_Login, $_Password)
     {
-        //UPDATE `czysty-las-database`.`users` SET `Name` = 'a', `Surname` = 'a', `Email` = 'a', `Rights` = 'a', `RegisterCode` = 'a' WHERE `users`.`Id` = 30
-        //DELETE FROM `czysty-las-database`.`users` WHERE `users`.`Id` = 12"
-        
-        $q = "UPDATE `czysty-las-database`.`users` SET `Name` = '".$_Name."', `Surname` = '".$_Surname."', `Email` = '".$_Email."', `Rights` = '".$_Rights."', `RegisterCode` = 'a' WHERE `users`.`Id` = ".$_Id;
-        $ins = mysql_query($q);
+        // Składnia zapytania.
+        $q = "UPDATE `czysty-las-database`.`users` SET `Name` = '".$_Name."', `Surname` = '".$_Surname."', `Email` = '".$_Email."', `Rights` = '".$_Rights."', `RegisterCode` = 'a', `Login` = '".$_Login.", `Password` = '".$_Password."'  WHERE `users`.`Id` = ".$_Id;
+        $ins = mysql_query($q); //  Wysłanie zapytania.
     }
+    
+    /*
+     * Funkcja usuwa rekord o wskazanym Id.
+     */
     
     public function DeleteUser($_id)
     {
+        // Składnia zapytania.
         $q = "DELETE FROM `czysty-las-database`.`users` WHERE `users`.`Id` = ".$_id;
-        $ins = mysql_query($q);
-        
-        if($ins)
-        {
-            echo '';
-        }
+        $ins = mysql_query($q); //  Wysłanie zapytania.
     }
 }
 ?>
