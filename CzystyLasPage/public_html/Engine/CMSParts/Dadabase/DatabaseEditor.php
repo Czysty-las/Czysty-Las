@@ -7,9 +7,6 @@
  */
 abstract class DatabaseEditor 
 {
-    protected $users;
-    protected $print;
-    protected $table;
     protected $ColsNames = array();
     
     public function __construct($_colNames =  array())

@@ -8,6 +8,8 @@ include '../Engine/CMSParts/Dadabase/DatabaseEditor.php';
 
 class UsersMenager extends DatabaseEditor
 {
+    private $users;
+    
     public function __construct($_colNames = array()) 
     {
         parent::__construct($_colNames);
