@@ -37,20 +37,26 @@ class UsersMenager extends DatabaseEditor
         {
             echo '<form action="CMS.php" method="post">';
             echo"<tr>";
-               echo '<td><input type="text" hidden="true" name="Id"  value="'.$print[$this->ColsNames[0]].
-                       '"/><input type="text" name="Name"  value="'.$print[$this->ColsNames[1]].
-                       '"/></td><td><input type="text" name="Surname"  value="'.$print[$this->ColsNames[2]].
-                       '"/></td><td><input type="text" name="Email"  value="'.$print[$this->ColsNames[3]].
-                       '"/></td><td><input type="text" name="Rights"  value="'.$print[$this->ColsNames[4]].
-                       '"/></td><td><input type="text" name="Login"  value="'.$print[$this->ColsNames[5]].
-                       '"/></td><td><input type="text" name="Password"  value="'.$print[$this->ColsNames[6]].
-                       '"/></td><td><button type="submit" name="function" value="delete">Usiń</button><button type="submit" name="function" value="edit">Edytuj</button></td>';
+               echo '<td><input type="text" hidden="true" name="'.$this->ColsNames[0].'"  value="'.$print[$this->ColsNames[0]].
+                       '"/><input type="text" name="'.$this->ColsNames[1].'"  value="'.$print[$this->ColsNames[1]].
+                       '"/></td><td><input type="text" name="'.$this->ColsNames[2].'"  value="'.$print[$this->ColsNames[2]].
+                       '"/></td><td><input type="text" name="'.$this->ColsNames[3].'"  value="'.$print[$this->ColsNames[3]].
+                       '"/></td><td><input type="text" name="'.$this->ColsNames[4].'"  value="'.$print[$this->ColsNames[4]].
+                       '"/></td><td><input type="text" name="'.$this->ColsNames[5].'"  value="'.$print[$this->ColsNames[5]].
+                       '"/></td><td><input type="text" name="'.$this->ColsNames[6].'"  value="'.$print[$this->ColsNames[6]].
+                       '"/></td><td>'.$this->DeleteButton.$this->EditButton.'</td>';
             echo "</td>";
             echo '</form>';
         }
         echo '<tr>';
         echo '<form action="CMS.php" method="post">';
-            echo '<td><input type="text" name="Name"></td><td><input type="text" name="Surname"></td><td><input type="text" name="Email"></td><td><input type="text" name="Rights"></td><td><input type="text" name="Login"></td><td><input type="text" name="Password"></td><td><button type="submit" name="function" value="add" class="add">Dodaj</button></td>';
+            echo '<td><input type="text" name="Name">'
+                . '</td><td><input type="text" name="Surname">'
+                . '</td><td><input type="text" name="Email"></td>'
+                . '<td><input type="text" name="Rights"></td>'
+                . '<td><input type="text" name="Login"></td>'
+                . '<td><input type="text" name="Password"></td>'
+                . '<td>'.$this->AddButton.'</td>';
         echo '</form>';
         echo '</tr>';
         echo '</table>';
