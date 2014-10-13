@@ -9,11 +9,27 @@ include '../Engine/CMSParts/Dadabase/DatabaseEditor.php';
 class UsersMenager extends DatabaseEditor
 {
     private $users;
-    
+    /*
+     * Konstruktor
+     */
     public function __construct($_colNames = array()) 
     {
         parent::__construct($_colNames);
     }
+    
+    /*
+     * Funkcja umoźliwająca zalogowanie się do serwisu. 
+     */
+    
+    public function LogIn($_login, $_password)
+    {
+        
+        $q = "SELECT * FROM `users` WHERE `Login` LIKE '$_login' AND `Password` LIKE '$_password'";
+        $this->users = mysql_query($q); //  Wysłanie zapytania.
+        
+        return mysql_fetch_array($this->users);
+    }
+    
     /*
      * Funkcja generuje tabele, która umoźliwaia dodawanie usuwanie, jak i edycję urzytkowników.
      */

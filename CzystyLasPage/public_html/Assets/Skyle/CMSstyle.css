@@ -78,3 +78,29 @@ button
 {
     width: 100%;
 }
+
+.login
+{
+    width: 600px;
+    height: 205px;
+    background-color: bisque;
+    
+    margin: 0 auto;
+}
+
+.loginInputs
+{
+    
+}
+
+.loginTable
+{
+    display: inline-block;
+    width: 300px;
+    margin: 50px 50px; 
+}
+
+img
+{
+    display: inline-block
+}
