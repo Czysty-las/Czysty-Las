@@ -20,13 +20,13 @@ if(!empty($_POST['function']))
     switch ($_POST['function'])
     {
         case 'add':
-            $_SESSION['users']->AddUser($_POST['Name'], $_POST['Surname'], $_POST['Email'], $_POST['Rights'], $_POST['Login'], $_POST['Password']);
+            $_SESSION['users']->Add(array($_POST['Name'], $_POST['Surname'], $_POST['Email'], $_POST['Rights'], $_POST['Login'], $_POST['Password']));
             break;
         case 'delete':
-            $_SESSION['users']->DeleteUser($_POST['Id']);
+            $_SESSION['users']->Delete($_POST['Id']);
             break;
         case 'edit':
-            $_SESSION['users']->EditUser($_POST['Id'], $_POST['Name'], $_POST['Surname'], $_POST['Email'], $_POST['Rights'], $_POST['Login'], $_POST['Password']);
+            $_SESSION['users']->Edit(array($_POST['Id'], $_POST['Name'], $_POST['Surname'], $_POST['Email'], $_POST['Rights'], $_POST['Login'], $_POST['Password']));
             break;
     }
        header( 'Location: CMS.php' ) ;  //  Odswieżenie strony.

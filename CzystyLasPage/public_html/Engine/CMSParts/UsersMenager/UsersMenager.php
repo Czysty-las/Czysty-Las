@@ -1,18 +1,17 @@
 <?php
-
+include '../Engine/CMSParts/Dadabase/DatabaseEditor.php';
 /*
  * Description of UsersMenager
  *
  * @author Lukasz
  */
 
-class UsersMenager 
+class UsersMenager extends DatabaseEditor
 {
-    private $users;
-    private $print;
-    private $table;
-    private $ColsNames = array('Id', 'Name', 'Surname', 'Email', 'Rights', 'Login', 'Password');
-    
+    public function __construct($_colNames = array()) 
+    {
+        parent::__construct($_colNames);
+    }
     /*
      * Funkcja generuje tabele, która umoźliwaia dodawanie usuwanie, jak i edycję urzytkowników.
      */
@@ -31,11 +30,19 @@ class UsersMenager
         
         //  Pętla generaująca poszczególne wiersze reprezentujące dodanych urzytkowników.
         
+
         while($print = mysql_fetch_array($this->users))
         {
             echo '<form action="CMS.php" method="post">';
             echo"<tr>";
-               echo '<td><input type="text" hidden="true" name="Id"  value="'.$print[$this->ColsNames[0]].'"/><input type="text" name="Name"  value="'.$print[$this->ColsNames[1]].'"/></td><td><input type="text" name="Surname"  value="'.$print[$this->ColsNames[2]].'"/></td><td><input type="text" name="Email"  value="'.$print[$this->ColsNames[3]].'"/></td><td><input type="text" name="Rights"  value="'.$print[$this->ColsNames[4]].'"/></td><td><input type="text" name="Login"  value="'.$print[$this->ColsNames[5]].'"/></td><td><input type="text" name="Password"  value="'.$print[$this->ColsNames[6]].'"/></td><td><button type="submit" name="function" value="delete">Usiń</button><button type="submit" name="function" value="edit">Edytuj</button></td>';
+               echo '<td><input type="text" hidden="true" name="Id"  value="'.$print[$this->ColsNames[0]].
+                       '"/><input type="text" name="Name"  value="'.$print[$this->ColsNames[1]].
+                       '"/></td><td><input type="text" name="Surname"  value="'.$print[$this->ColsNames[2]].
+                       '"/></td><td><input type="text" name="Email"  value="'.$print[$this->ColsNames[3]].
+                       '"/></td><td><input type="text" name="Rights"  value="'.$print[$this->ColsNames[4]].
+                       '"/></td><td><input type="text" name="Login"  value="'.$print[$this->ColsNames[5]].
+                       '"/></td><td><input type="text" name="Password"  value="'.$print[$this->ColsNames[6]].
+                       '"/></td><td><button type="submit" name="function" value="delete">Usiń</button><button type="submit" name="function" value="edit">Edytuj</button></td>';
             echo "</td>";
             echo '</form>';
         }
@@ -45,16 +52,18 @@ class UsersMenager
         echo '</form>';
         echo '</tr>';
         echo '</table>';
+
     }
     
     /*
      * Funkcja wykonuje zapytanie do bazy danych, które dodaje urzytkowników.
      */
     
-    public function AddUser($_Name, $_Surname, $_Email, $_Rights, $_Login, $_Password) 
+    //public function Add($_Name, $_Surname, $_Email, $_Rights, $_Login, $_Password) 
+    public function Add($_params = array()) 
     {
         // Składnia zapytania.
-        $q = "INSERT INTO `czysty-las-database`.`users` (`Id`, `Name`, `Surname`, `Email`, `Rights`, `RegisterCode`, `Login`, `Password`) VALUES (NULL, '$_Name', '$_Surname', '$_Email', '$_Rights', '123aavv', '$_Login', '$_Password');";
+        $q = "INSERT INTO `czysty-las-database`.`users` (`Id`, `Name`, `Surname`, `Email`, `Rights`, `RegisterCode`, `Login`, `Password`) VALUES (NULL, '$_params[0]', '$_params[1]', '$_params[2]', '$_params[3]', '123aavv', '$_params[4]', '$_params[5]');";
         $ins = mysql_query($q); //  Wysłanie zapytania.
     }
     
@@ -62,21 +71,24 @@ class UsersMenager
      * Funkcaj wykonuje zapytanie do bazy danych, które edeytyje rekord o wzkazanym Id.
      */
     
-    public function EditUser($_Id, $_Name, $_Surname, $_Email, $_Rights, $_Login, $_Password)
+    public function Edit($_params = array())
     {
+        echo $_params[0];
         // Składnia zapytania.
-        $q = "UPDATE `czysty-las-database`.`users` SET `Name` = '".$_Name."', `Surname` = '".$_Surname."', `Email` = '".$_Email."', `Rights` = '".$_Rights."', `RegisterCode` = 'a', `Login` = '".$_Login.", `Password` = '".$_Password."'  WHERE `users`.`Id` = ".$_Id;
+        $q = "UPDATE `czysty-las-database`.`users` SET `Name` = '$_params[1]', `Surname` = '$_params[2]', `Email` = '$_params[3]', `Rights` = '$_params[4]', `Login` = '$_params[5]', `Password` = '$_params[6]'  WHERE `users`.`Id` = ".$_params[0];
         $ins = mysql_query($q); //  Wysłanie zapytania.
+        
+        echo $q;
     }
     
     /*
      * Funkcja usuwa rekord o wskazanym Id.
      */
     
-    public function DeleteUser($_id)
+    public function Delete($_param)
     {
         // Składnia zapytania.
-        $q = "DELETE FROM `czysty-las-database`.`users` WHERE `users`.`Id` = ".$_id;
+        $q = "DELETE FROM `czysty-las-database`.`users` WHERE `users`.`Id` = ".$_param;
         $ins = mysql_query($q); //  Wysłanie zapytania.
     }
 }
