@@ -12,7 +12,7 @@ abstract class DatabaseEditor
     protected $Target;
 
 
-    protected $DeleteButton = '<button type="submit" name="function" value="delete">Usiń</button>';
+    protected $DeleteButton = '<button type="submit" name="function" value="delete">Usuń</button>';
     protected $AddButton    = '<button type="submit" name="function" value="add" class="add">Dodaj</button>';
     protected $EditButton   = '<button type="submit" name="function" value="edit">Edytuj</button>';
 
