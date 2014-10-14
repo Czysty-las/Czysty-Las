@@ -7,3 +7,4 @@ ib_logfile*
 *.pid
 /performance_schema
 /mysql
+/czysty@002dlas@002ddatabase
