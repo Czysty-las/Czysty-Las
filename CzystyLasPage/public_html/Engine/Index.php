@@ -13,7 +13,7 @@ include './CMSParts/UsersMenager/UsersMenager.php';
 
 session_start();    // Rozpoczęcie sesji. 
     
-$_SESSION['users'] = new UsersMenager(array('Id', 'Name', 'Surname', 'Email', 'Rights', 'Login', 'Password'));    //  Utworzenie nowego Menadrzera urzytkowników.
+$_SESSION['users'] = new UsersMenager(array('Id', 'Name', 'Surname', 'Email', 'Rights', 'Login', 'Password'), 'CMS.php');    //  Utworzenie nowego Menadrzera urzytkowników.
 $db = new Database('127.0.0.1', 'root', '', 'czysty-las-database');
 
 if(isset($_POST['loginButton']))

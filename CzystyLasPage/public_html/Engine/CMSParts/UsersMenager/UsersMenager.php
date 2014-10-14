@@ -12,9 +12,9 @@ class UsersMenager extends DatabaseEditor
     /*
      * Konstruktor
      */
-    public function __construct($_colNames = array()) 
+    public function __construct($_colNames = array(), $_target) 
     {
-        parent::__construct($_colNames);
+        parent::__construct($_colNames, $_target);
     }
     
     /*
@@ -46,6 +46,7 @@ class UsersMenager extends DatabaseEditor
         $q = 'SELECT * FROM users';
         $this->users = mysql_query($q); //  Wysłanie zapytania.
         
+        
         //  Pętla generaująca poszczególne wiersze reprezentujące dodanych urzytkowników.
         
 
@@ -65,7 +66,7 @@ class UsersMenager extends DatabaseEditor
             echo '</form>';
         }
         echo '<tr>';
-        echo '<form action="CMS.php" method="post">';
+        echo '<form action="'.$this->Target.'" method="post">';
             echo '<td><input type="text" name="Name">'
                 . '</td><td><input type="text" name="Surname">'
                 . '</td><td><input type="text" name="Email"></td>'

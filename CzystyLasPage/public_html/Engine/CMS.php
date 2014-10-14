@@ -15,6 +15,7 @@ $db = new Database('127.0.0.1', 'root', '', 'czysty-las-database');
  * W przyszłości nastapi pewnie reorganizacja. 
  *  
  */
+
 if(!empty($_POST['function']))
 {
     switch ($_POST['function'])
