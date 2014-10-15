@@ -13,24 +13,29 @@ and open the template in the editor.
     </head>
     <body>
         <div class="mainContainer">
-            <nav class="cards">
-                <a class="card" id="users">
-                    <p class="cardTitle">Users</p>
-                </a>
-                <a class="card"></a>
-                <a class="card"></a>
-                <a class="card"></a>
-                <a class="card"></a>
-            </nav>
+            <div class="label">
+                <div class="titleDivision">
+                    <p class="CMSname">Content menagment system</p>
+                </div>
+                <div class="titleDivision">
+                    <p class="pageTitle">Czysty las</p>
+                </div>
+                <div class="titleDivision">
+                    <div class="userMenu">
+                        <div class="userName"> Łukasz Dabek</div>
+                        <div class="userOption">Profil</div>
+                        <div class="userOption">Zadania</div>
+                        <div class="userOption">Wyloguj</div>
+                    </div>
+                </div>    
+            </div>
             <div class="Content">
-                <table>
-                    <tr>
-                        <td>Imie</td><td>Nazwisko</td><td>Email</td><td>Operacje</td>
-                    </tr>
-                </table>
-                
-                <form action="CMS.php" method="post"></form>
-                <input type="submit" value=""  hidden="true"/>
+                <div class="optionBelt">
+                    <div class="optionsTitle">Content</div><a class="option">News</a><a class="option">Kalendarium</a><a class="option">Galeria</a>
+                </div>
+                <div class="optionBelt">
+                    <div class="optionsTitle">Manage</div><a class="option">Urzytkownicy</a><a class="option">Konfiguracja</a>                    
+                </div>
             </div>
             
         </div>
