@@ -62,9 +62,7 @@ session_start();
             echo '<body>';
 
             echo '<div class="mainContainer">';
-            echo '        
-            <div class="mainContainer">
-                    <div class="label">
+            echo '<div class="label">
                         <div class="titleDivision">
                             <div class="titleContainer">
                                 <p class="pageTitles" id="CMSname">Content menagment system</p>
@@ -101,12 +99,19 @@ session_start();
                         header( 'Location: Index.php' ) ;
                         break;
                     case "menu":
-                        echo '
-                            <div class="optionBelt">
-                                <div class="optionsTitle">Kontent</div><a class="option" href="CMS.php?function=news">News</a><a class="option">Kalendarium</a><a class="option">Galeria</a>
+                        echo 
+                            '<div class="optionBelt">
+                                <div class="optionsTitle" id="content"><p class="title">KONTENT</p></div>
+                                <a class="option" id="news" href="CMS.php?function=news"/></a>
+                                <a class="option" id="calender"/></a>
+                                <a class="option" id="gallery"></a>
+                                <a class="option" id="InForest"></a>
+                                <a class="option" id="UpCycling"></a>
                             </div>
                             <div class="optionBelt">
-                                <div class="optionsTitle">Zarządzaj</div><a class="option" href="CMS.php?function=users">Urzytkownicy</a><a class="option">Konfiguracja</a>                    
+                                <div class="optionsTitle" id="menage"><p class="title">ZARZĄDZAJ</p></div>
+                                <a class="option" id="users" href="CMS.php?function=users"></a>
+                                <a class="option" id="config"></a>                    
                             </div>';
                         break;
                 }

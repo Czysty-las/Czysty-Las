@@ -49,7 +49,6 @@ body
 {
     width: 200px;
     height: 100px;
-    background-color: azure;
     float: right;
     overflow: hidden;
     position: relative;
@@ -60,7 +59,7 @@ body
     width: 200px;
     height: 100px;
     display: table;
-    background-color: blanchedalmond;
+    background-color: #70a031;
 }
 
 .userName 
@@ -80,7 +79,7 @@ body
     min-width: 1000px;
     min-height: 1000px; 
     
-    background-color: greenyellow;
+    background-color: #84af4b;
 }
 
 .label 
@@ -88,27 +87,20 @@ body
     width: 100%;
     height: 100px;
     padding: 0 0 0 0;
-    background-color: green;
-}
-
-#users
-{
-    background-color: lightsalmon;
+    background-color: #70a031;
 }
 
 .Content 
 {
-    margin:  0 auto;
+    margin: 0 auto;
     min-height: 1000px;
     min-width: 1000px;
     max-width: 1200px;
-    background-color: lightsalmon;
     padding-top: 10px;
 }
 
 .optionBelt 
 {
-    background-color: brown;
     margin: 40px auto;
     height: 100px;
     width: 80%;
@@ -119,9 +111,24 @@ body
     width: 100px;
     height: 100px;
     float: left;
-    background-color: buttonface;
-//    position: absolute;
-    text-align: center;
+    text-align: left;
+    margin: 0 2px 0 0;
+    color: white;
+}
+
+#content
+{
+    background-color: #a7393b;    
+}
+
+#menage
+{
+    background-color: #5099a6;    
+}
+.title
+{
+    margin: 0;
+    padding: 10px 10px;
 }
 
 .option
@@ -131,13 +138,43 @@ body
     display: inline-block;
     float: left;
     text-align: center;
- //   vertical-align: bottom;
-    background-image: url(../Images/IconPlaceholder.png);
+    background-color: #70a031;
+    margin: 0 2px 0 2px;
 }
 
-.opctionIcon
+#news
 {
-    
+    background-image: url(../Images/cms/newsy_button.png);
+}
+
+#calender
+{
+    background-image: url(../Images/cms/calendarium_button.png);
+}
+
+#gallery
+{
+    background-image: url(../Images/cms/gallery_button.png);   
+}
+
+#InForest
+{
+    background-image: url(../Images/cms/w_lesie_button.png);       
+}
+
+#UpCycling
+{
+    background-image: url(../Images/cms/upcycling_button.png);           
+}
+
+#users
+{
+    background-image: url(../Images/cms/users_button.png);           
+}
+
+#config
+{
+    background-image: url(../Images/cms/settings_button.png);              
 }
 
 table
