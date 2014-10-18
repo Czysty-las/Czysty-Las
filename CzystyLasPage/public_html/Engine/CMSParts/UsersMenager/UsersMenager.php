@@ -1,5 +1,5 @@
 <?php
-include '../Engine/CMSParts/Dadabase/DatabaseEditor.php';
+//include '../Engine/CMSParts/Dadabase/DatabaseEditor.php';
 /*
  * Description of UsersMenager
  *
@@ -14,7 +14,7 @@ class UsersMenager extends DatabaseEditor
      */
     public function __construct($_colNames = array(), $_target) 
     {
-        parent::__construct($_colNames, $_target);
+        parent::__construct($_colNames, $_target, 'user');
     }
     
     /*
@@ -34,7 +34,7 @@ class UsersMenager extends DatabaseEditor
      * Funkcja generuje tabele, która umoźliwaia dodawanie usuwanie, jak i edycję urzytkowników.
      */
     
-    public function printUsers()
+    public function Show()
     {
         //  Początek generowanie tabeli.
         echo '<table>';
