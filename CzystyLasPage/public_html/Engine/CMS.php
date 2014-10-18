@@ -28,6 +28,14 @@ session_start();
                 $_SESSION['users']->Add(array($_POST['Name'], $_POST['Surname'], $_POST['Email'], $_POST['Rights'], $_POST['Login'], $_POST['Password']));
                 header( 'Location: CMS.php?function=users' ) ;  //  Odswieżenie strony.
                 break;
+             case 'add_news':
+                $_SESSION['news']->Add(array($_POST['UserId'], $_POST['Topic'], $_POST['Content']));
+                header( 'Location: CMS.php?function=news' ) ;  //  Odswieżenie strony.
+                break;
+             case 'delete_news':
+                $_SESSION['news']->Delete($_POST['Id']);
+                header( 'Location: CMS.php?function=news' ) ;  //  Odswieżenie strony.                
+                break;
             case 'delete_user':
                 $_SESSION['users']->Delete($_POST['Id']);
                 header( 'Location: CMS.php?function=users' ) ;  //  Odswieżenie strony.                
@@ -95,7 +103,7 @@ session_start();
                     case "menu":
                         echo '
                             <div class="optionBelt">
-                                <div class="optionsTitle">Kontent</div><a class="option">News</a><a class="option">Kalendarium</a><a class="option">Galeria</a>
+                                <div class="optionsTitle">Kontent</div><a class="option" href="CMS.php?function=news">News</a><a class="option">Kalendarium</a><a class="option">Galeria</a>
                             </div>
                             <div class="optionBelt">
                                 <div class="optionsTitle">Zarządzaj</div><a class="option" href="CMS.php?function=users">Urzytkownicy</a><a class="option">Konfiguracja</a>                    

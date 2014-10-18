@@ -30,6 +30,15 @@ class UsersMenager extends DatabaseEditor
         return mysql_fetch_array($this->users);
     }
     
+    public function SelectUserById($_id)
+    {
+        $q = "SELECT * FROM `users` WHERE `Id` LIKE '$_id'";
+        $this->users = mysql_query($q);
+        $name = mysql_fetch_array($this->users);
+        return $name['Name'].' '.$name['Surname'];
+    }
+
+
     /*
      * Funkcja generuje tabele, która umoźliwaia dodawanie usuwanie, jak i edycję urzytkowników.
      */
