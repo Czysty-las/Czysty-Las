@@ -18,7 +18,7 @@ include './CMSParts/UsersMenager/User.php';
 session_start();    // Rozpoczęcie sesji. 
     
 $_SESSION['users'] = new UsersMenager(array('Id', 'Name', 'Surname', 'Email', 'Rights', 'Login', 'Password'), 'CMS.php');    //  Utworzenie nowego Menadrzera urzytkowników.
-$_SESSION['news'] = new NewsMenager(array('Id', 'UserId', 'Topic', 'Content'), 'CMS.php');
+$_SESSION['news'] = new NewsMenager(array('Id', 'UserId', 'Topic', 'Content', 'Date'), 'CMS.php');
 $db = new Database('127.0.0.1', 'root', '', 'czysty-las-database');
 
 if(isset($_POST['loginButton']))
