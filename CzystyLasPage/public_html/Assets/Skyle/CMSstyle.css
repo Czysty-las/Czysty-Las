@@ -11,6 +11,17 @@ body
     overflow: no-content;
 }
 
+a
+{
+    text-decoration: none;
+    color: white;
+}
+
+a:hover
+{
+    font-size: 30px;
+}
+
 #CMSname
 {
     font-size: 30px;
@@ -60,6 +71,7 @@ body
     height: 100px;
     display: table;
     background-color: #70a031;
+    color: white;
 }
 
 .userName 
@@ -67,12 +79,15 @@ body
     width: 200px;
     height: 100px;
     display: table;
+    color: white;    
 }
+
 
 .userMenu:hover
 {
     height: 400px;
 }
+
 .mainContainer 
 {
     margin: 0 auto;
@@ -93,7 +108,7 @@ body
 .Content 
 {
     margin: 0 auto;
-    min-height: 1000px;
+    max-height: 1000px;
     min-width: 1000px;
     max-width: 1200px;
     padding-top: 10px;
@@ -147,6 +162,11 @@ body
     background-image: url(../Images/cms/newsy_button.png);
 }
 
+#news:hover
+{
+    background-image: url(../Images/cms/newsy_button.png), url(../Images/cms/hover.png);    
+}
+
 #calender
 {
     background-image: url(../Images/cms/calendarium_button.png);
@@ -172,6 +192,11 @@ body
     background-image: url(../Images/cms/users_button.png);           
 }
 
+#users:hover
+{
+    background-image: url(../Images/cms/users_button.png), url(../Images/cms/hover.png);     
+}
+
 #config
 {
     background-image: url(../Images/cms/settings_button.png);              
@@ -186,6 +211,11 @@ body
     height: 100px;
 }
 
+#home:hover
+{
+    background-image: url(../Images/cms/homepage_button.png), url(../Images/cms/hover.png);    
+}
+
 table
 {
     width: 1000px;
@@ -195,10 +225,40 @@ table
     border-width: 1px;
 }
 
+.currentNews
+{
+    width: 47.5%;
+    height: 600px;
+    
+    overflow-y: scroll;
+    float: left;
+    
+    background-color: rgba(0,0,0,0.2);
+}
+
+.newsEditFeald
+{
+    width: 52.5%;
+    height: 600px;
+    background-color: azure;
+    
+    float: right;
+}
+
+.newsContentFeald
+{
+    width: 100%;
+    height: 560px;
+}
+
+.newsTable
+{
+    width: 100%;
+}
+
 td
 {
     text-align: center;
-    width: 14%;
 }
 
 input

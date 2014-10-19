@@ -8,6 +8,8 @@ include './CMSParts/News/NewsMenager.php';
 include './CMSParts/UsersMenager/UsersMenager.php';
 include './CMSParts/UsersMenager/User.php';
 
+include './CMSParts/CMSContentScripts/UserMenu.php';
+
 session_start();
 
     $db = new Database('127.0.0.1', 'root', '', 'czysty-las-database');
@@ -29,6 +31,7 @@ session_start();
                 header( 'Location: CMS.php?function=users' ) ;  //  Odswieżenie strony.
                 break;
              case 'add_news':
+                echo  $_POST['Content'];
                 $_SESSION['news']->Add(array($_POST['UserId'], $_POST['Topic'], $_POST['Content']));
                 header( 'Location: CMS.php?function=news' ) ;  //  Odswieżenie strony.
                 break;
@@ -71,16 +74,13 @@ session_start();
                         <div class="titleDivision">
                             <a id="home" href="CMS.php?function=menu"></a>
                         </div>
-                        <div class="titleDivision">
-                            <div class="userMenu">
-                                <div class="userName"><p class="pageTitles">'.$_SESSION['user']->GetUserName().'</p></div>
-                                <div class="userOption"><a class="pageTitles">Profil</a></div>
-                                <div class="userOption"><a class="pageTitles">Zadania</a></div>
-                                <div class="userOption"><a class="pageTitles" href="CMS.php?function=logoff">Wyloguj</a></div>
-                            </div>
+                        <div class="titleDivision">';
+                            UserMenu($_SESSION['user']->GetUserName());
+            echo '
                         </div>    
                     </div>
                     ';
+               
             echo ' <div class="Content">';
             if(isset($_GET['function']))
             {

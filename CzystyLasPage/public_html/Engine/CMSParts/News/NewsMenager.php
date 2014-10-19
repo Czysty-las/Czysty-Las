@@ -22,9 +22,10 @@ class NewsMenager extends DatabaseEditor
     public function Show() 
     {
          //  Początek generowanie tabeli.
-        echo '<table>';
+        echo '<div class="currentNews">';
+        echo '<table class="newsTable">';
         echo '<tr>';
-            echo '<td>Autor</td><td>Temat</td><td>Data</td>';
+            echo '<td>Autor</td><td>Temat</td><td>Data</td><td>Operacje</td>';
         echo '</tr>';
         
         //  Składnie zapytania
@@ -39,23 +40,27 @@ class NewsMenager extends DatabaseEditor
         {
             echo '<form action="'.$this->Target.'" method="post">';
             echo"<tr>";
-               echo '<td><input type="text" hidden="true" name="'.$this->ColsNames[0].'"  value="'.$print[$this->ColsNames[0]].
-                       '"/><input type="text" name="'.$this->ColsNames[1].'"  value="'. $_SESSION['users']->SelectUserById($print[$this->ColsNames[1]]).
-                       '"/></td><td><input type="text" name="'.$this->ColsNames[2].'"  value="'.$print[$this->ColsNames[2]].
-                       '"/></td><td><input type="text" name="'.$this->ColsNames[4].'"  value="'.$print[$this->ColsNames[4]].
-                       '"/></td><td>'.$this->DeleteButton.$this->EditButton.'</td>';
+               echo '<td>'
+                    . '<input type="text" hidden="true" name="'.$this->ColsNames[0].'"  value="'.$print[$this->ColsNames[0]].'"/>'
+                    . '<input type="text" name="'.$this->ColsNames[1].'"  value="'. $_SESSION['users']->SelectUserById($print[$this->ColsNames[1]]).'"/>'
+                    . '</td><td><input type="text" name="'.$this->ColsNames[2].'"  value="'.$print[$this->ColsNames[2]].'"/>'
+                    . '</td><td><input type="text" name="'.$this->ColsNames[4].'"  value="'.$print[$this->ColsNames[4]].'"/>'
+                    . '</td><td>'.$this->DeleteButton.$this->EditButton.'</td>';
             echo "</td>";
             echo '</form>';
         }
         echo '<tr>';
-        echo '<form action="'.$this->Target.'" method="post">';
-            echo '<td><input type="text" name="'.$this->ColsNames[1].'">'
-                . '</td><td><input type="text" name="'.$this->ColsNames[2].'">'
-                . '</td><td><input type="text" name="'.$this->ColsNames[3].'"></td>'
-                . '<td>'.$this->AddButton.'</td>';
-        echo '</form>';
         echo '</tr>';
-        echo '</table>';  
+        echo '</table>';
+        echo '</div>';
+        echo '<div class="newsEditFeald">';
+        echo '<form action="'.$this->Target.'" method="post">';
+        echo '<input type="text" name="'.$this->ColsNames[2].'" value="Temat"/>';
+        echo '<textarea name="'.$this->ColsNames[3].'" class="newsContentFeald">Treść</textarea>';
+        echo $this->AddButton;
+        echo '</form>';
+        echo '</div>';
+
     }
 
     public function Add($_params = array()) 
