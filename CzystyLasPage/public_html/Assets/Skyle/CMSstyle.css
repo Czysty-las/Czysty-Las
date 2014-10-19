@@ -202,6 +202,11 @@ a:hover
     background-image: url(../Images/cms/settings_button.png);              
 }
 
+#help
+{
+    background-image: url(../Images/cms/help_button.png);                  
+}
+
 #home
 {
     margin: 0 auto;
