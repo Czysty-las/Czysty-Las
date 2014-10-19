@@ -69,9 +69,7 @@ session_start();
                             </div>
                         </div>
                         <div class="titleDivision">
-                            <div class="titleContainer" id="pageTitle">
-                                <p class="pageTitles">Czysty las</p>
-                            </div>    
+                            <a id="home" href="CMS.php?function=menu"></a>
                         </div>
                         <div class="titleDivision">
                             <div class="userMenu">
@@ -99,20 +97,7 @@ session_start();
                         header( 'Location: Index.php' ) ;
                         break;
                     case "menu":
-                        echo 
-                            '<div class="optionBelt">
-                                <div class="optionsTitle" id="content"><p class="title">KONTENT</p></div>
-                                <a class="option" id="news" href="CMS.php?function=news"/></a>
-                                <a class="option" id="calender"/></a>
-                                <a class="option" id="gallery"></a>
-                                <a class="option" id="InForest"></a>
-                                <a class="option" id="UpCycling"></a>
-                            </div>
-                            <div class="optionBelt">
-                                <div class="optionsTitle" id="menage"><p class="title">ZARZĄDZAJ</p></div>
-                                <a class="option" id="users" href="CMS.php?function=users"></a>
-                                <a class="option" id="config"></a>                    
-                            </div>';
+                        include '../Engine/CMSParts/Options.html';
                         break;
                 }
             }

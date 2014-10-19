@@ -1,0 +1,18 @@
+<div class="label">
+    <div class="titleDivision">
+        <div class="titleContainer">
+            <p class="pageTitles" id="CMSname">Content menagment system</p>
+        </div>
+    </div>
+    <div class="titleDivision">
+        <a id="home" href="CMS.php?function=menu"></a>
+    </div>
+    <div class="titleDivision">
+        <div class="userMenu">
+            <div class="userName"><p class="pageTitles">'.$_SESSION['user']->GetUserName().'</p></div>
+            <div class="userOption"><a class="pageTitles">Profil</a></div>
+            <div class="userOption"><a class="pageTitles">Zadania</a></div>
+            <div class="userOption"><a class="pageTitles" href="CMS.php?function=logoff">Wyloguj</a></div>
+        </div>
+    </div>    
+</div>
