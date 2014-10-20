@@ -8,8 +8,8 @@ include '../public_html/Engine/CMSParts/Dadabase/Database.php';
 
 $database = new Database('127.0.0.1', 'root', '', 'czysty-las-database');
 
-//  Składnie zapytania
-        $q = 'SELECT * FROM news';
+        //  Składnie zapytania
+        $q = 'SELECT * FROM `news` ORDER BY `news`.`Id` DESC';
         $toPrint = mysql_query($q); //  Wysłanie zapytania.
         
         
