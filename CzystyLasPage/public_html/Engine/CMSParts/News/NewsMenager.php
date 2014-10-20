@@ -18,27 +18,31 @@ class NewsMenager extends DatabaseEditor {
     {
         parent::__construct($_colNames, $_target, "news");
         $this->DeleteButton = '<button type="submit" name="function" value="delete_news" class="newsDeleteItem">-</button>';
+        $this->AddButton    = '<button type="submit" name="function" value="add_news" class="newsOK">OK</button>';
+        $this->EditButton   = '<button type="submit" name="function" value="edit_news" class="newsOK">OK</button>';
     }
 
     public function Show() 
     {
-        $_id;
-         
-        if(!isset($_GET['id']))
+        $_id = 0; $_author = ''; $_content = '';
+        
+        if(isset($_GET['id'])) $_id = $_GET['id'];
+        
+        echo '<div class="currentNews">';    
+        
+        if(isset($_GET['add']) || $_id > 0)
         {
-            $_id = $_GET['id'];
+            if($_id > 0)
+            {
+                echo '<form action="' . $this->Target . '" method="post">';    
+            }
+            else
+            {
+                echo '<form action="' . $this->Target . '" method="post">';
+                echo '<input type="text" name="' . $this->ColsNames[2] . '" value="Temat" class="newsItem" id="teopicInput"/>';                
+            }
         }
-        //  Początek generowanie tabeli.
-        echo '<div class="currentNews">';
-        /*    echo '<table class="newsTable">';
-          echo '<tr>';
-          echo '<td>Autor</td><td>Temat</td><td>Data</td><td>Operacje</td>';
-          echo '</tr>'; */
-        if (isset($_GET['add'])) 
-        {
-            echo '<form action="' . $this->Target . '" method="post">';
-            echo '<input type="text" name="' . $this->ColsNames[2] . '" value="Temat" class="newsItem" id="teopicInput"/>';
-        }
+
         //  Składnie zapytania
         $q = 'SELECT * FROM `news` ORDER BY `news`.`Id` DESC';
         $this->users = mysql_query($q); //  Wysłanie zapytania.
@@ -47,32 +51,34 @@ class NewsMenager extends DatabaseEditor {
 
         while ($print = mysql_fetch_array($this->users)) 
         {
-            /*
-          echo '<form action="'.$this->Target.'" method="post">';
-          echo"<tr>";
-          echo '<td>'
-          . '<input type="text" hidden="true" name="'.$this->ColsNames[0].'"  value="'.$print[$this->ColsNames[0]].'"/>'
-          . '<input type="text" name="'.$this->ColsNames[1].'"  value="'. $_SESSION['users']->SelectUserById($print[$this->ColsNames[1]]).'"/>'
-          . '</td><td><input type="text" name="'.$this->ColsNames[2].'"  value="'.$print[$this->ColsNames[2]].'"/>'
-          . '</td><td><input type="text" name="'.$this->ColsNames[4].'"  value="'.$print[$this->ColsNames[4]].'"/>'
-          . '</td><td>'.$this->DeleteButton.$this->EditButton.'</td>';
-
-
-          . '<a class="newsItem" href="CMS.php?function=news&id='.$print[$this->ColsNames[0]].'">'.$print[$this->ColsNames[2]].'</a>';
-          echo "</td>";
-          echo '</form>'; */
             
-        if (!isset($_GET['add'])) 
-        { 
-            echo '<form action="'. $this->Target .'" method="post">'
-            . '<input type="text" hidden="true" name="' . $this->ColsNames[0] . '"  value="' . $print[$this->ColsNames[0]] . '"/>';
-            echo '<a class="newsItem" href="CMS.php?function=news&id=' . $print[$this->ColsNames[0]] . '">' . $print[$this->ColsNames[2]] . $this->DeleteButton . '</a>';
-            echo '</form>';
-        }
-        else
-        {
-            echo '<a class="newsItem" href="CMS.php?function=news&id=' . $print[$this->ColsNames[0]] . '">' . $print[$this->ColsNames[2]] .'</a>';
-        }
+            if (!isset($_GET['add'])) 
+            {
+                if($_id == $print[$this->ColsNames[0]])
+                {
+                    echo '<input type="text" name="' . $this->ColsNames[2] . '" value="'.$print[$this->ColsNames[2]].'" class="newsItem" id="teopicInput"/><div class="newsPointItem">></div>'
+                        .'<input type="text" hidden="true" name="' . $this->ColsNames[0] . '"  value="' . $print[$this->ColsNames[0]] . '"/>';
+                    $_content = $print[$this->ColsNames[3]];
+                }
+                else 
+                {
+                    if(!$_id > 0)
+                    {
+                        echo '<form action="'. $this->Target .'" method="post">'
+                        . '<input type="text" hidden="true" name="' . $this->ColsNames[0] . '"  value="' . $print[$this->ColsNames[0]] . '"/>';
+                        echo '<a class="newsItem" href="CMS.php?function=news&id=' . $print[$this->ColsNames[0]] . '">' . $print[$this->ColsNames[2]] . $this->DeleteButton . '</a>';
+                        echo '</form>';
+                    }
+                    else
+                    {
+                        echo '<a class="newsItem" href="CMS.php?function=news&id=' . $print[$this->ColsNames[0]] . '">' . $print[$this->ColsNames[2]] .'</a>';                        
+                    }
+                }
+            }
+            else
+            {
+                echo '<a class="newsItem" href="CMS.php?function=news&id=' . $print[$this->ColsNames[0]] . '">' . $print[$this->ColsNames[2]] .'</a>';
+            }
         }
         echo '<tr>';
         echo '</tr>';
@@ -80,12 +86,21 @@ class NewsMenager extends DatabaseEditor {
         echo '</div>';
         echo '<div class="newsEditFeald">';
         
-        if (isset($_GET['add'])) 
+        if (isset($_GET['add']) || $_id > 0) 
         {
-
-            echo '<textarea name="' . $this->ColsNames[3] . '" class="newsContentFeald">Treść</textarea>';
-            echo $this->AddButton;
-            echo '</form>';
+            if($_id > 0)
+            {
+                echo '<textarea rows="40" name="'.$this->ColsNames[3].'" class="ckeditor">'.$_content.'</textarea>'
+                     .'<input type="text" hidden="true" name="' . $this->ColsNames[1] . '"  value="' . $print[$this->ColsNames[1]] . '"/>';;
+                echo $this->EditButton;
+                echo '</form>';
+            }
+            else 
+            {
+                echo '<textarea name="' . $this->ColsNames[3] . '" class="ckeditor">Treść</textarea>';
+                echo $this->AddButton;
+                echo '</form>';
+            }
         } 
         else 
         {
@@ -102,13 +117,16 @@ class NewsMenager extends DatabaseEditor {
         $ins = mysql_query($q); //  Wysłanie zapytania.
     }
 
-    public function Delete($_param) {
-        $q = "DELETE FROM `czysty-las-database`.`news` WHERE `news`.`Id` =" . $_param;
+    public function Delete($_param) 
+    {
+        $q = "DELETE FROM `czysty-las-database`.`news` WHERE `news`.`Id` = '$_param'" ;
         $ins = mysql_query($q);
     }
 
-    public function Edit($_params = array()) {
-        
+    public function Edit($_params = array()) 
+    {
+        $q = "UPDATE `czysty-las-database`.`news` SET `UserId` = '$_params[1]', `Topic` = '$_params[2]', `Content` = '$_params[3]' WHERE `news`.`Id` = '$_params[0]'";
+        $ins = mysql_query($q); //  Wysłanie zapytania.
     }
 
 }

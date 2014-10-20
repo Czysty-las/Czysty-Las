@@ -14,10 +14,9 @@ and open the template in the editor.
     font-size: 40px;
     text-align: center;
 }
-.news
+p
 {
     color: #bccb89;
-    text-align: center;
 }
 
 .content
