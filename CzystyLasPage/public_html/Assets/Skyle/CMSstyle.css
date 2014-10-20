@@ -2,6 +2,11 @@
     Created on : 2014-10-10, 16:25:56
     Author     : Lukasz
 */
+
+/*
+*   Wszystkie style od Znaczników
+*   -------------------Start-------------------
+*/
 html
 {
     font-family: tahoma;
@@ -24,6 +29,24 @@ a
 a:hover
 {
     font-size: 30px;
+}
+
+/*
+*   Wszystkie style od Znaczników
+*   -------------------Koniec-------------------
+*/
+
+/*
+*   Wszystkie style od Nagłówka
+*   -------------------Start-------------------
+*/
+
+.label 
+{
+    width: 100%;
+    height: 100px;
+    padding: 0 0 0 0;
+    background-color: #70a031;
 }
 
 #CMSname
@@ -60,6 +83,11 @@ a:hover
     float: left;
 }
 
+/*
+*   Wszystkie style od lissty opcji urzytkownika
+*   -------------------Start-------------------
+*/
+
 .userMenu
 {
     width: 200px;
@@ -92,6 +120,22 @@ a:hover
     height: 400px;
 }
 
+/*
+*   Wszystkie style od lissty opcji urzytkownika
+*   -------------------Koniec-------------------
+*/
+
+
+/*
+*   Wszystkie style od Nagłówka
+*   -------------------Koniec-------------------
+*/
+
+/*
+*   Wszystkie style od przestrzeni kontentu
+*   -------------------Start-------------------
+*/
+
 .mainContainer 
 {
     margin: 0 auto;
@@ -99,14 +143,6 @@ a:hover
     min-height: 1000px; 
     
     background-color: #84af4b;
-}
-
-.label 
-{
-    width: 100%;
-    height: 100px;
-    padding: 0 0 0 0;
-    background-color: #70a031;
 }
 
 .Content 
@@ -117,6 +153,16 @@ a:hover
     max-width: 1200px;
 }
 
+/*
+*   Wszystkie style od przestrzeni kontentu
+*   -------------------Koniec-------------------
+*/
+
+
+/*
+*   Wszystkie style od ikonek CMS-a
+*   -------------------Start-------------------
+*/
 .optionBelt 
 {
     margin: 40px auto;
@@ -224,6 +270,11 @@ a:hover
     background-image: url(../Images/cms/homepage_button.png), url(../Images/cms/hover.png);    
 }
 
+/*
+*   Wszystkie style od ikonek CMS-a
+*   -------------------Koniec-------------------
+*/
+
 table
 {
     width: 1000px;
@@ -232,7 +283,10 @@ table
     border-style: solid;
     border-width: 1px;
 }
-
+/*
+*   Wszystkie style od działu newsów
+*   -------------------Start-------------------
+*/
 .currentNews
 {
     width: 30%;
@@ -324,7 +378,7 @@ table
 {
     width: 200px;
     height: 70px;
-    display: block;
+    display: inline-block;
     line-height: 70px;
     text-align: center;
     vertical-align: middle;
@@ -337,6 +391,16 @@ table
     background-color: #a7393b;    
 }
 
+.newsOK:hover
+{
+    font-size: 16px;    
+}
+
+.newsCenter
+{
+    width: 400px;
+    margin: 0 auto;
+}
 .newsPointItem
 {
     width: 25px;
@@ -355,16 +419,16 @@ table
 
 }
 
-
 .newsDeleteItem:hover
 {
     background-color: rgba(0,0,0,0.5);   
 }
 
-.newsTable
-{
-    width: 100%;
-}
+/*
+*   Wszystkie style od działu newsów
+*   -------------------Koniec-------------------
+*/
+
 
 td
 {
