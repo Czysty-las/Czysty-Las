@@ -85,13 +85,9 @@ class InForestMenager extends DatabaseEditor
             <input type="file" name="Photo"/>
             <input type="text" name="Title"/>
             <textarea name="Description" class="ckeditor"></textarea>
-            '.$this->AddButton.'
-            </form>';    
-        }
-            
-    /*    
-            ';
-     */
-    }
+            <div class="newsCenter">'.$this->AddButton.'<a class="newsOK" href="CMS.php?function=inforest">Powrót</a></div>
+            </form>';
 
+        }
+    }
 }
