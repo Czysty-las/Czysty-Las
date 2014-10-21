@@ -236,6 +236,11 @@ a:hover
     background-image: url(../Images/cms/w_lesie_button.png);       
 }
 
+#InForest:hover
+{
+    background-image: url(../Images/cms/w_lesie_button.png), url(../Images/cms/hover.png);  
+}
+
 #UpCycling
 {
     background-image: url(../Images/cms/upcycling_button.png);           
@@ -445,6 +450,109 @@ table
 
 /*
 *   Wszystkie style od działu kalendarza
+*   -------------------Koniec-------------------
+*/
+
+/*
+*   Wszystkie style od działu W lesie
+*   -------------------Start-------------------
+*/
+
+.inforestContent
+{
+    width: 1000px;
+    height: 650px;
+    
+    margin: 0 auto;
+    
+//    background-color: aqua;
+    
+    overflow-y: scroll;
+}
+
+.inforestTopicHolder
+{
+    width: 600px;
+    height: 50px;
+    line-height: 50px;
+    background-color: rgba(255,255,255,0.1);
+    float: right;
+}
+
+.inforestTopicHolder p
+{
+    height: 50px;
+    line-height: 50px;
+    margin-left: 5px;
+    margin: 0 10px;
+}
+
+.inforestDiscriptionHolder
+{
+    width: 600px;
+    height: 250px;
+    float: right;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+    
+    background-color: rgba(255,255,255,0.25); 
+}
+
+.inforestDiscriptionHolder p
+{
+    margin: 10px;
+    position: relative;
+}
+
+.inforestContent a
+{}
+
+.inforestContent a:hover
+{ 
+    font-size: 16px;
+}
+
+.inforestItem
+{
+    background-color: #70a031;
+    width: 900px;
+    height: 300px;
+    margin: 0 auto 20px;
+
+     display: block;
+}
+
+.inforestImageHolder
+{
+    width: 300px;
+    height: 300px;
+    float: left;
+    background-color: rgba(255,255,255,0.2);    
+}
+
+.inforesrImage
+{
+    margin: 20% 25;
+    max-width: 250px;
+    display: block;
+}
+
+.inforestAddItem
+{
+    width: 200px;
+    height: 70px;
+    display: block;
+    line-height: 70px;
+    text-align: center;
+    vertical-align: middle;
+    margin: 10px auto 10px;
+    
+    background-color: #a7393b;     
+}
+
+/*
+*   Wszystkie style od działu W lesie
 *   -------------------Koniec-------------------
 */
 

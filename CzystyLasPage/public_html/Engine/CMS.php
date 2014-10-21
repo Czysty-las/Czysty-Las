@@ -5,6 +5,7 @@
 include '../Engine/CMSParts/Dadabase/DatabaseEditor.php';
 include './CMSParts/Dadabase/Database.php';
 include './CMSParts/News/NewsMenager.php';
+include './CMSParts/InForestMenager/InForestMenager.php';
 include './CMSParts/UsersMenager/UsersMenager.php';
 include './CMSParts/UsersMenager/User.php';
 
@@ -25,6 +26,18 @@ session_start();
     {
         switch ($_POST['function'])
         {
+            case 'add_inforest':
+                $_SESSION['inforest']->Add(array($_FILES['Photo']['tmp_name'], $_POST['Title'], $_POST['Description'], $_FILES['Photo']['name']));
+                header( 'Location: CMS.php?function=inforest' ) ;  //  Odswieżenie strony. 
+                break;
+             case 'delete_inforest':
+                $_SESSION['inforest']->Delete($_POST['Id']);
+                header( 'Location: CMS.php?function=calendar' ) ;  //  Odswieżenie strony.                
+                break;
+            case 'edit_inforest':
+                $_SESSION['inforest']->Edit(array($_POST['Id'], $_POST['UserId'], $_POST['Date'], $_POST['Topic'], $_POST['Description']));
+                header( 'Location: CMS.php?function=calendar' ) ;  //  Odswieżenie strony.                
+                break;
             case 'add_calendar':
                 $_SESSION['calendar']->Add(array($_POST['Date'], $_POST['Topic'], $_POST['Description']));
                 header( 'Location: CMS.php?function=calendar' ) ;  //  Odswieżenie strony.
@@ -77,6 +90,30 @@ session_start();
         echo '<html>'
                 . '<head>';
                 include './CMSParts/Head.html';
+                
+                if(isset($_GET['function']))
+                {
+                    switch ($_GET['function'])
+                    {
+                        case "news":
+                            echo "        
+                                <script>
+                                    CKEDITOR.config.height = '375px';
+                                    CKEDITOR.config.resize_enabled = false;
+                                </script>
+                                ";
+                            break;
+                        case "inforest":
+                            echo "        
+                                <script>
+                                    CKEDITOR.config.height = '500px';
+                                    CKEDITOR.config.resize_enabled = false;
+                                </script>
+                                ";
+                            break;
+                    }
+                }
+                
             echo '</head>';
             echo '<body>';
 
@@ -110,6 +147,9 @@ session_start();
                         break;
                     case 'calender':
                         $_SESSION['calendar']->Show();
+                        break;
+                    case "inforest":
+                        $_SESSION['inforest']->Show();
                         break;
                     case "logoff":
                         session_destroy();
