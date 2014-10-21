@@ -7,11 +7,11 @@
  */
 abstract class DatabaseEditor 
 {
-    protected $ColsNames = array();
+    protected $ColsNames = array();     //  nazwy kolumn obsługiwanej tabeli
     
-    protected $Target;
+    protected $Target;                  //  Plik php, gdzie wywoływane są metody
     
-    protected $DeleteButton;
+    protected $DeleteButton;            //  Standardowe przyciksi dodaj, zmien, usun
     protected $AddButton;
     protected $EditButton;
 

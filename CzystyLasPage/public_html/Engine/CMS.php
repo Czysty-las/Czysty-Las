@@ -25,9 +25,21 @@ session_start();
     {
         switch ($_POST['function'])
         {
+            case 'add_calendar':
+                $_SESSION['calendar']->Add(array($_POST['Date'], $_POST['Topic'], $_POST['Description']));
+                header( 'Location: CMS.php?function=calendar' ) ;  //  Odswieżenie strony.
+                break;
+             case 'delete_calendar':
+                $_SESSION['calendar']->Delete($_POST['Id']);
+                header( 'Location: CMS.php?function=calendar' ) ;  //  Odswieżenie strony.                
+                break;
+            case 'edit_calendar':
+                $_SESSION['calendar']->Edit(array($_POST['Id'], $_POST['UserId'], $_POST['Date'], $_POST['Topic'], $_POST['Description']));
+                header( 'Location: CMS.php?function=calendar' ) ;  //  Odswieżenie strony.                
+                break;
             case 'add_news':
-                echo  $_POST['Content'];
-                $_SESSION['news']->Add(array($_POST['UserId'], $_POST['Topic'], $_POST['Content']));
+                echo  $_POST['UserId'];
+                $_SESSION['news']->Add(array($_POST['Topic'], $_POST['Content']));
                 header( 'Location: CMS.php?function=news' ) ;  //  Odswieżenie strony.
                 break;
              case 'delete_news':
@@ -95,6 +107,9 @@ session_start();
                         break;
                     case "users":
                         $_SESSION['users']->Show();
+                        break;
+                    case 'calender':
+                        $_SESSION['calendar']->Show();
                         break;
                     case "logoff":
                         session_destroy();

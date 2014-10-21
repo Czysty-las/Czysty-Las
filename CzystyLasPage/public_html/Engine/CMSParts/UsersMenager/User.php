@@ -28,4 +28,9 @@ class User
     {
         return $this->Name.' '.$this->Surname;
     }
+    
+    public function GetUserId() 
+    {
+        return $this->Id;
+    }
 }

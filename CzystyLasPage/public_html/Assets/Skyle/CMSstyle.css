@@ -221,6 +221,11 @@ a:hover
     background-image: url(../Images/cms/calendarium_button.png);
 }
 
+#calender:hover
+{
+    background-image: url(../Images/cms/calendarium_button.png), url(../Images/cms/hover.png);        
+}
+
 #gallery
 {
     background-image: url(../Images/cms/gallery_button.png);   
@@ -426,6 +431,20 @@ table
 
 /*
 *   Wszystkie style od działu newsów
+*   -------------------Koniec-------------------
+*/
+
+/*
+*   Wszystkie style od działu kalendarza
+*   -------------------Start-------------------
+*/
+
+
+
+
+
+/*
+*   Wszystkie style od działu kalendarza
 *   -------------------Koniec-------------------
 */
 
