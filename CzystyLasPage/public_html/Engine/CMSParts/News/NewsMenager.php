@@ -166,7 +166,6 @@ class NewsMenager extends DatabaseEditor {
         // Składnia zapytania.
         $date = date('d.m.Y\r.');
         $uid = $_SESSION['user']->GetUserId();
-        echo $uid;
         $q = "INSERT INTO `czysty-las-database`.`news` (`Id`, `UserId`, `Topic`, `Content`, `Date`) VALUES (NULL, '$uid', '$_params[0]', '$_params[1]', '$date')";
         $ins = mysql_query($q); //  Wysłanie zapytania.
     }

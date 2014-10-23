@@ -32,11 +32,11 @@ session_start();
                 break;
              case 'delete_inforest':
                 $_SESSION['inforest']->Delete($_POST['Id']);
-                header( 'Location: CMS.php?function=calendar' ) ;  //  Odswieżenie strony.                
+                header( 'Location: CMS.php?function=inforest' ) ;  //  Odswieżenie strony.                
                 break;
             case 'edit_inforest':
-                $_SESSION['inforest']->Edit(array($_POST['Id'], $_POST['UserId'], $_POST['Date'], $_POST['Topic'], $_POST['Description']));
-                header( 'Location: CMS.php?function=calendar' ) ;  //  Odswieżenie strony.                
+                $_SESSION['inforest']->Edit(array($_POST['Id'], $_POST['Photo'], $_POST['Title'], $_POST['Description']));
+                header( 'Location: CMS.php?function=inforest' ) ;  //  Odswieżenie strony.                
                 break;
             case 'add_calendar':
                 $_SESSION['calendar']->Add(array($_POST['Date'], $_POST['Topic'], $_POST['Description']));

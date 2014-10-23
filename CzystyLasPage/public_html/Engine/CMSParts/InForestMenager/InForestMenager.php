@@ -43,13 +43,14 @@ class InForestMenager extends DatabaseEditor
 
     public function Edit($_params = array()) 
     {
-        
+       $q = "UPDATE `czysty-las-database`.`inforest` SET `Photo` = '$_params[1]', `Title` = '$_params[2]', `Description` = '$_params[3]' WHERE `inforest`.`Id` = ".$_params[0];
+       $ins = mysql_query($q);
     }
 
     public function Show() 
     {
         
-        if(!isset($_GET['add']))
+        if(!isset($_GET['add']) && !isset($_GET['Id']))
         {         
             $q = "SELECT * FROM `inforest`";
             $ins = mysql_query($q);
@@ -63,7 +64,7 @@ class InForestMenager extends DatabaseEditor
                 $print1 = mysql_fetch_array($ins1);
 
 
-                echo '<a class="inforestItem" href="CMS.php?function=inforest&Id'.$print1['Id'].'">';
+                echo '<a class="inforestItem" href="CMS.php?function=inforest&Id='.$print['Id'].'">';
                 echo '<div class="inforestImageHolder">';
                 echo '<img class="inforesrImage" src="./Data/Images/'.$print1['Name'].'" href="sadas">';
                 echo '</div>';
@@ -80,13 +81,40 @@ class InForestMenager extends DatabaseEditor
         }
         else
         {
+            if(isset($_GET['Id']))
+            {
+                $id = $_GET['Id'];
+            }
+            else
+            {
+                $id = 0;
+            }
+            
+            if($id == 0)
+            {
              echo '
-            <form action="CMS.php" method="post" ENCTYPE="multipart/form-data">
-            <input type="file" name="Photo"/>
-            <input type="text" name="Title"/>
-            <textarea name="Description" class="ckeditor"></textarea>
-            <div class="newsCenter">'.$this->AddButton.'<a class="newsOK" href="CMS.php?function=inforest">Powrót</a></div>
-            </form>';
+                <form action="CMS.php" method="post" ENCTYPE="multipart/form-data">
+                <input type="file" name="Photo"/>
+                <input type="text" name="Title"/>
+                <textarea name="Description" class="ckeditor"></textarea>
+                <div class="newsCenter">'.$this->AddButton.'<a class="newsOK" href="CMS.php?function=inforest">Powrót</a></div>
+                </form>';
+            }
+            else
+            {
+                $q = "SELECT * FROM `inforest` WHERE `Id` = ".$id;
+                $Edit = mysql_query($q);
+                $EditPrint = mysql_fetch_array($Edit);
+                echo '
+                    <form action="CMS.php" method="post" ENCTYPE="multipart/form-data">
+                    <input hidden="true" type="text" name="Id" value="'.$EditPrint['Id'].'"/>
+                    <input hidden="true" type="text" name="Photo" value="'.$EditPrint['Photo'].'"/>    
+                    <input type="file" name="Photo"/>
+                    <input type="text" name="Title" value="'.$EditPrint['Title'].'"/>
+                    <textarea name="Description" class="ckeditor">'.$EditPrint['Description'].'</textarea>
+                    <div class="newsCenter">'.$this->EditButton.'<a class="newsOK" href="CMS.php?function=inforest">Powrót</a></div>
+                    </form>';    
+            }
 
         }
     }
