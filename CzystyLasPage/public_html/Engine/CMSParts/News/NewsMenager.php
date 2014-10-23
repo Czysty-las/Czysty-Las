@@ -167,7 +167,7 @@ class NewsMenager extends DatabaseEditor {
         $date = date('d.m.Y\r.');
         $uid = $_SESSION['user']->GetUserId();
         echo $uid;
-        $q = "INSERT INTO `czysty-las-database`.`news` (`Id`, `UserId`, `Topic`, `Content`, `Date`) VALUES (NULL, '$uid]', '$_params[0]', '$_params[1]', '$date')";
+        $q = "INSERT INTO `czysty-las-database`.`news` (`Id`, `UserId`, `Topic`, `Content`, `Date`) VALUES (NULL, '$uid', '$_params[0]', '$_params[1]', '$date')";
         $ins = mysql_query($q); //  Wysłanie zapytania.
     }
 
@@ -180,7 +180,7 @@ class NewsMenager extends DatabaseEditor {
     public function Edit($_params = array()) 
     {
         $q = "UPDATE `czysty-las-database`.`news` SET `UserId` = '$_params[1]', `Topic` = '$_params[2]', `Content` = '$_params[3]' WHERE `news`.`Id` = '$_params[0]'";
-        $ins = mysql_query($q); //  Wysłanie zapytania.
+        $ins = mysql_query($q); //  Wysłanie zapytania.       
     }
 
 }
