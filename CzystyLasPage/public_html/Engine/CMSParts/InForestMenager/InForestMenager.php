@@ -38,7 +38,8 @@ class InForestMenager extends DatabaseEditor
 
     public function Delete($_param) 
     {
-        
+       $q = "DELETE FROM `czysty-las-database`.`inforest` WHERE `inforest`.`Id` = ".$_param;
+       $ins = mysql_query($q);        
     }
 
     public function Edit($_params = array()) 
@@ -66,6 +67,11 @@ class InForestMenager extends DatabaseEditor
 
                 echo '<a class="inforestItem" href="CMS.php?function=inforest&Id='.$print['Id'].'">';
                 echo '<div class="inforestImageHolder">';
+                echo '<form action="'. $this->Target .'" method="post">'
+                   . '<input type="text" hidden="true" name="' . $this->ColsNames[0] . '"  value="' . $print[$this->ColsNames[0]] . '"/>'; //  Przekazanie Id elementu do usunięcia przez post -> powrót do CMS.php -> Wywolanie odpowiedniej metody
+                echo $this->DeleteButton ;
+                echo '</form>';
+
                 echo '<img class="inforesrImage" src="./Data/Images/'.$print1['Name'].'" href="sadas">';
                 echo '</div>';
                 echo '<div class="inforestTopicHolder">';
@@ -93,7 +99,7 @@ class InForestMenager extends DatabaseEditor
             if($id == 0)
             {
              echo '
-                <form action="CMS.php" method="post" ENCTYPE="multipart/form-data">
+                <form action="'.$this->Target.'" method="post" ENCTYPE="multipart/form-data">
                 <input type="file" name="Photo"/>
                 <input type="text" name="Title"/>
                 <textarea name="Description" class="ckeditor"></textarea>
@@ -106,7 +112,7 @@ class InForestMenager extends DatabaseEditor
                 $Edit = mysql_query($q);
                 $EditPrint = mysql_fetch_array($Edit);
                 echo '
-                    <form action="CMS.php" method="post" ENCTYPE="multipart/form-data">
+                    <form action="'.$this->Target.'" method="post" ENCTYPE="multipart/form-data">
                     <input hidden="true" type="text" name="Id" value="'.$EditPrint['Id'].'"/>
                     <input hidden="true" type="text" name="Photo" value="'.$EditPrint['Photo'].'"/>    
                     <input type="file" name="Photo"/>
