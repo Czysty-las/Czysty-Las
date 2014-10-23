@@ -63,7 +63,7 @@ class InForestMenager extends DatabaseEditor
                 $print1 = mysql_fetch_array($ins1);
 
 
-                echo '<a class="inforestItem">';
+                echo '<a class="inforestItem" href="CMS.php?function=inforest&Id'.$print1['Id'].'">';
                 echo '<div class="inforestImageHolder">';
                 echo '<img class="inforesrImage" src="./Data/Images/'.$print1['Name'].'" href="sadas">';
                 echo '</div>';
