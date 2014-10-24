@@ -40,14 +40,23 @@ class CalendarMenager extends DatabaseEditor
 
     public function Show() 
     {
-        echo '<div class="klasaCalendar1">';   
+        /*
+         * Proszę o anglojęzyczne nazy zmiennych/klass/klas w css.
+         * To się zrobi estetyczny misz masz. ;)
+         * 
+         *  
+         * Pozrawiam. 
+         * 
+         * ;)
+         */
+        echo '<div class="classCalendar1">';   
         
         
         echo '</div>';
         
         
         
-        echo '<div class="klasaCalendar2">';
+        echo '<div class="classCalendar2">';
         
         
         echo '</div>';
