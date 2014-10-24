@@ -15,6 +15,8 @@ include './CMSParts/CalendarMenager/CalendarMenager.php';
 include './CMSParts/InForestMenager/InForestMenager.php';
 include './CMSParts/UsersMenager/UsersMenager.php';
 include './CMSParts/UsersMenager/User.php';
+include '../Engine/CMSParts/UsersMenager/ProfileMenager.php';
+
 
 
 session_start();    // Rozpoczęcie sesji. 
@@ -23,6 +25,7 @@ $_SESSION['users'] = new UsersMenager(array('Id', 'Name', 'Surname', 'Email', 'R
 $_SESSION['news'] = new NewsMenager(array('Id', 'UserId', 'Topic', 'Content', 'Date'), 'CMS.php');
 $_SESSION['calendar'] = new CalendarMenager(array('Id', 'UserId', 'Date', 'Topic', 'Description'), 'CMS.php');
 $_SESSION['inforest'] = new InForestMenager(array('Id', 'Photo', 'Title', 'Description'),'CMS.php');
+$_SESSION['profile'] = new ProfileMenager(array('Id', 'Name', 'Surname', 'Email', 'Rights', 'Login', 'Password'), 'CMS.php');
 
 $db = new Database('127.0.0.1', 'root', '', 'czysty-las-database');
 

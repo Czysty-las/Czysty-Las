@@ -8,6 +8,7 @@ include './CMSParts/News/NewsMenager.php';
 include './CMSParts/InForestMenager/InForestMenager.php';
 include './CMSParts/UsersMenager/UsersMenager.php';
 include './CMSParts/UsersMenager/User.php';
+include '../Engine/CMSParts/UsersMenager/ProfileMenager.php';
 
 include './CMSParts/CMSContentScripts/UserMenu.php';
 
@@ -26,6 +27,14 @@ session_start();
     {
         switch ($_POST['function'])
         {
+            case 'add_profile':
+                $_SESSION['profile']->Add(array($_FILES['Photo']['tmp_name'], $_POST['Title'], $_POST['Description'], $_FILES['Photo']['name']));
+                header( 'Location: CMS.php?function=inforest' ) ;  //  Odswieżenie strony. 
+                break;
+             case 'delete_profile':
+                $_SESSION['profile']->Delete($_POST['Id']);
+                header( 'Location: CMS.php?function=inforest' ) ;  //  Odswieżenie strony.                
+                break;
             case 'add_inforest':
                 $_SESSION['inforest']->Add(array($_FILES['Photo']['tmp_name'], $_POST['Title'], $_POST['Description'], $_FILES['Photo']['name']));
                 header( 'Location: CMS.php?function=inforest' ) ;  //  Odswieżenie strony. 
@@ -139,6 +148,9 @@ session_start();
             {
                 switch ($_GET['function'])
                 {
+                    case "profile":
+                        $_SESSION['profile']->Show();
+                        break;
                     case "news":
                         $_SESSION['news']->Show();
                         break;
