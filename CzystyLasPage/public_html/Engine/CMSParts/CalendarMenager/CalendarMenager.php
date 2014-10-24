@@ -40,7 +40,17 @@ class CalendarMenager extends DatabaseEditor
 
     public function Show() 
     {
+        echo '<div class="klasaCalendar1">';   
         
+        
+        echo '</div>';
+        
+        
+        
+        echo '<div class="klasaCalendar2">';
+        
+        
+        echo '</div>';
     }
 
 //put your code here
