@@ -19,8 +19,10 @@ class TaskMenager extends DatabaseEditor
         parent::__construct($_colNames, $_target, "tasks");
     }
 
-    public function Add($_params = array()) {
-        
+    public function Add($_params = array()) 
+    {
+        $q = "INSERT INTO `czysty-las-database`.`tasks` (`Id`, `UserId`, `Description`, `Status`) VALUES (NULL, '$_params[0]', '$_params[1]', '0')";
+        $ins = mysql_query($q);
     }
 
     public function Delete($_param) {
@@ -42,7 +44,7 @@ class TaskMenager extends DatabaseEditor
         echo '<div class="taskContent">';
         echo '<div class="taskAdd">';
         echo '<form action="' . $this->Target . '" method="post">';    
-        echo '<select class="taskOwner">';
+        echo '<select class="taskOwner" name="UserId">';
         
         $q = "SELECT `Id`, `Name`, `Surname` FROM `czysty-las-database`.`users`";
         $ins = mysql_query($q);
@@ -54,7 +56,7 @@ class TaskMenager extends DatabaseEditor
         
         echo '</select>';
         echo '<input type="text" class="taskDescription" name="Description" value="Co trzeba zrobić?">';
-        echo '<button type="submit" class="taskSet" value="add_task">Zadaj</button>';
+        echo '<button type="submit" class="taskSet" name="function" value="add_task">Zadaj</button>';
         echo '</form>';    
         echo '</div>';
         echo '<div class="taskInProgres">';

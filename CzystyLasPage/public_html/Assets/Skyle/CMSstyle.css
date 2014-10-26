@@ -264,12 +264,12 @@ a:hover
 
 #tasks
 {
-    background-image: url(../Images/cms/users_button.png);     
+    background-image: url(../Images/cms/zadania_button.png);     
 }
 
 #tasks:hover
 {
-    background-image: url(../Images/cms/users_button.png), url(../Images/cms/hover.png);       
+    background-image: url(../Images/cms/zadania_button.png), url(../Images/cms/hover.png);       
 }
 
 #help
