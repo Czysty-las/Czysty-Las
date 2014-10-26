@@ -29,6 +29,17 @@ session_start();
     {
         switch ($_POST['function'])
         {
+            case 'done_task':
+                $_SESSION['tasks']->Done($_POST['Id']);
+                if($_POST['profile'])
+                    header( 'Location: CMS.php?function=profile' ) ;    
+                else
+                    header( 'Location: CMS.php?function=tasks' ) ;
+                break;
+            case 'delete_task':
+                $_SESSION['tasks']->Delete($_POST['Id']);
+                header( 'Location: CMS.php?function=tasks' ) ;
+                break;    
             case 'clear_task':
                 $_SESSION['tasks']->DeleteDone();
                 header( 'Location: CMS.php?function=tasks' ) ;

@@ -14,7 +14,8 @@
 class TaskMenager extends DatabaseEditor
 {
     private $doneButton = '<button type="submit" class="taskSet" value="done_task">Wykonane</button>';
-        
+    private $deleteButton = '<button type="submit" class="taskSet" name="function" value="delete_task">Usuń</button>';
+    
     public function __construct($_colNames = array(), $_target) {
         parent::__construct($_colNames, $_target, "tasks");
     }
@@ -25,13 +26,21 @@ class TaskMenager extends DatabaseEditor
         $ins = mysql_query($q);
     }
 
-    public function Delete($_param) {
-        
+    public function Delete($_param) 
+    {
+        $q = "DELETE FROM `czysty-las-database`.`tasks` WHERE `tasks`.`Id` = ".$_param;
+        $ins = mysql_query($q);
     }
     
     public function DeleteDone() 
     {
         $q = "DELETE FROM `czysty-las-database`.`tasks` WHERE `tasks`.`Status` = 1;";
+        $ins = mysql_query($q);
+    }
+    
+    public function Done($_param)
+    {
+        $q = "UPDATE `czysty-las-database`.`tasks` SET `Status` = '1' WHERE `tasks`.`Id` = ".$_param;
         $ins = mysql_query($q);
     }
 
@@ -72,13 +81,14 @@ class TaskMenager extends DatabaseEditor
             
             $print1 = mysql_fetch_array($ins1);
             
-        //    echo '<form action="' . $this->Target . '" method="post">';    
+            echo '<form action="' . $this->Target . '" method="post">';   
+            echo '<input type="text" hidden="true" name="Id" value="'.$print['Id'].'">';
             echo '<div class="taskOwner">'.$print1['Name'].' '.$print1['Surname'].'</div>';
 
             echo '</select>';
             echo '<div type="text" class="taskDescription">'.$print['Description'].'</div>';
-            echo '<button type="submit" class="taskSet" value="done_task">Wykonane</button>';
-        //    echo '</form>';
+            echo $this->deleteButton;
+            echo '</form>';
         }
 
         echo '</div>';

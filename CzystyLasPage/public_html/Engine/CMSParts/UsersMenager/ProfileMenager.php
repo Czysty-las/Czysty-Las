@@ -13,7 +13,7 @@
  */
 class ProfileMenager extends DatabaseEditor 
 {
-    private $doneButton = '<button type="submit" class="taskSet" value="done_task">Wykonane</button>';
+    private $doneButton = '<button type="submit" class="taskSet" name ="function" value="done_task">Wykonane</button>';
     
     public function __construct($_colNames = array(), $_target) 
     {
@@ -60,13 +60,12 @@ class ProfileMenager extends DatabaseEditor
 
                 $print1 = mysql_fetch_array($ins1);
 
-            //    echo '<form action="' . $this->Target . '" method="post">';    
-            //    echo '<div class="taskOwner">'.$print1['Name'].' '.$print1['Surname'].'</div>';
-
-            //    echo '</select>';
+                echo '<form action="' . $this->Target . '" method="post">';    
+                echo '<input type="text" hidden="true" name="Id" value="'.$print['Id'].'">';
+                echo '<input type="text" hidden="true" name="profile" value="yes">';
                 echo '<div type="text" class="taskDescription">'.$print['Description'].'</div>';
                 echo $this->doneButton;
-            //    echo '</form>';
+                echo '</form>';
             }
 
         echo '</div>';
