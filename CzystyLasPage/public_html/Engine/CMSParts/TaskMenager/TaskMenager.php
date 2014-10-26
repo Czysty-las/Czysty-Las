@@ -26,6 +26,12 @@ class TaskMenager extends DatabaseEditor
     public function Delete($_param) {
         
     }
+    
+    public function DeleteDone() 
+    {
+        $q = "DELETE FROM `czysty-las-database`.`tasks` WHERE `tasks`.`Status` = 1;";
+        $ins = mysql_query($q);
+    }
 
     public function Edit($_params = array()) {
         
@@ -74,8 +80,10 @@ class TaskMenager extends DatabaseEditor
         }
 
         echo '</div>';
+        
         echo '<div class="taskInProgres">';
-        echo '<button type="submit" class="clearDone" value="clear_task">Wyczyść wykonane</button>';
+        echo '<form action="' . $this->Target . '" method="post">';    
+        echo '<button type="submit" class="clearDone" name="function" value="clear_task">Wyczyść wykonane</button>';
         $q = "SELECT * FROM `tasks` WHERE `Status` = 1";
         $ins = mysql_query($q);
         
@@ -98,7 +106,8 @@ class TaskMenager extends DatabaseEditor
         }
         
         echo '</div>';
-        echo '</div>';
+        echo '</form>';
+    //    echo '</div>';
     }
 
 //put your code here
