@@ -29,6 +29,10 @@ session_start();
     {
         switch ($_POST['function'])
         {
+            case 'clear_task':
+                $_SESSION['tasks']->DeleteDone();
+                header( 'Location: CMS.php?function=tasks' ) ;
+                break;
             case 'add_profile':
                 $_SESSION['profile']->Add(array($_FILES['Photo']['tmp_name'], $_POST['Title'], $_POST['Description'], $_FILES['Photo']['name']));
                 header( 'Location: CMS.php?function=inforest' ) ;  //  Odswieżenie strony. 

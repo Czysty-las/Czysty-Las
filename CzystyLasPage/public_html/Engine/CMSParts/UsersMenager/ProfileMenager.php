@@ -46,7 +46,7 @@ class ProfileMenager extends DatabaseEditor
         echo '</div>';
         echo '<div class="contentContainer">';
         echo '<p>Zadania</p>';
-        echo '<div class="userTask">';
+    //    echo '<div class="userTask">';
         
             $q = "SELECT * FROM `tasks` WHERE `UserId` = ".$_SESSION['user']->GetUserId()." AND `Status` = 0 ORDER BY `Id` ASC";
         //    echo $q;
@@ -61,9 +61,9 @@ class ProfileMenager extends DatabaseEditor
                 $print1 = mysql_fetch_array($ins1);
 
             //    echo '<form action="' . $this->Target . '" method="post">';    
-                echo '<div class="taskOwner">'.$print1['Name'].' '.$print1['Surname'].'</div>';
+            //    echo '<div class="taskOwner">'.$print1['Name'].' '.$print1['Surname'].'</div>';
 
-                echo '</select>';
+            //    echo '</select>';
                 echo '<div type="text" class="taskDescription">'.$print['Description'].'</div>';
                 echo $this->doneButton;
             //    echo '</form>';
@@ -71,7 +71,7 @@ class ProfileMenager extends DatabaseEditor
 
         echo '</div>';
         echo '</div>';
-        echo '</div>';
+    //    echo '</div>';
         
         
     }
