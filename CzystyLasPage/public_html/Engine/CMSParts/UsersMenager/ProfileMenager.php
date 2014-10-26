@@ -31,14 +31,33 @@ class ProfileMenager extends DatabaseEditor
     public function Edit($_params = array()) {
         
     }
-
+    
+    public function EditProfile() 
+    {
+        echo '<div class="profileContainer">';
+        echo '<div class="prfileDisplay">';
+        echo '<a class="profileImage"><img src="./Data/Images/'.$_SESSION['user']->GetUserImage().'"/></a>';
+        echo '<input type="file" name="Photo"/>';
+        echo '<input type="text" hidden="true" name="Id" value="'.$_SESSION['user']->GetUserId().'">';
+        echo '<input type="text" name="Name" value="'.$_SESSION['user']->GetName().'">';
+        echo '<input type="text" name="Surname" value="'.$_SESSION['user']->GetSurname().'">';
+        echo '<input type="text" name="Login" value="'.$_SESSION['user']->GetUserLogin().'">';
+        echo '<input type="text" name="Login" value="'.$_SESSION['user']->GetUserPassword().'">';
+        echo '</div>';
+        echo '<div class="editorContainer">';
+        echo '<textarea name="sdfsaf" class="ckeditor">'.$_SESSION['user']->GetUserAbaut().'</textarea>';
+        echo '</div>';
+        echo '</div>';
+    }
+    
     public function Show()
     {
         echo '<div class="profileContainer">';
         echo '<div class="prfileDisplay">';
         echo '<a class="profileImage"><img src="./Data/Images/'.$_SESSION['user']->GetUserImage().'"/></a>';
         echo '<p>'.$_SESSION['user']->GetUserName().'</p>';
-        echo '<p>'.$_SESSION['user']->GetUserLogin().'</p>';
+        echo '<p>'.$_SESSION['user']->GetUserLogin().'</p>';     
+        echo '<a class="profileEdit" href="CMS.php?function=edit_profile">Edytuj profil</a>';
         echo '</div>';
         echo '<div class="contentContainer">';
         echo '<p>O mnie</p>';

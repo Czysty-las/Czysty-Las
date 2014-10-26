@@ -141,6 +141,14 @@ session_start();
                                 </script>
                                 ";
                             break;
+                        case "edit_profile":
+                            echo "        
+                                <script>
+                                    CKEDITOR.config.height = '450px';
+                                    CKEDITOR.config.resize_enabled = false;
+                                </script>
+                                ";
+                            break;
                     }
                 }
                 
@@ -174,6 +182,9 @@ session_start();
                         break;
                     case "profile":
                         $_SESSION['profile']->Show();
+                        break;
+                    case 'edit_profile':
+                        $_SESSION['profile']->EditProfile();
                         break;
                     case "news":
                         $_SESSION['news']->Show();

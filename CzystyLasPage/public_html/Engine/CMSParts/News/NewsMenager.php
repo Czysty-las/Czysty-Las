@@ -135,7 +135,7 @@ class NewsMenager extends DatabaseEditor {
         {
             if($_id > 0)    //  Jesli pojawiła się id wskazujace element do edycji
             {
-                echo '<textarea rows="40" name="'.$this->ColsNames[3].'" class="ckeditor">'.$_content.'</textarea>'
+                echo '<textarea name="'.$this->ColsNames[3].'" class="ckeditor">'.$_content.'</textarea>'
                      .'<input type="text" hidden="true" name="' . $this->ColsNames[1] . '"  value="' . $print[$this->ColsNames[1]] . '"/>';;
                 
                 echo '<div class="newsCenter">';     

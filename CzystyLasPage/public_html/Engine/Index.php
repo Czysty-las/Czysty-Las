@@ -37,7 +37,7 @@ if(isset($_POST['loginButton']))
     
     if($loginRezultat['Id'] > 0)
     {
-        $_SESSION['user'] = new User($loginRezultat['Id'], $loginRezultat['Name'], $loginRezultat['Surname'], $loginRezultat['Login'], $loginRezultat['Image'], $loginRezultat['About'] );
+        $_SESSION['user'] = new User($loginRezultat['Id'], $loginRezultat['Name'], $loginRezultat['Surname'], $loginRezultat['Login'], $loginRezultat['Password'], $loginRezultat['Image'], $loginRezultat['About'] );
         header( 'Location: CMS.php?function=menu' ) ; //  Przełączenie do właściwego interfejsu zarządzania.
     }
     else

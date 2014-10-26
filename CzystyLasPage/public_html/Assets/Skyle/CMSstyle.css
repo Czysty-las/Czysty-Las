@@ -629,6 +629,22 @@ table
     text-align: justify;
 }
 
+.profileContainer textarea
+{
+    width: 640px;
+    height: 550px;
+
+    float: right;
+}
+
+.editorContainer
+{
+    width: 740px;
+    height: 650px;
+
+    float: right;   
+}
+
 .profileImage
 {
     margin: 30px 30px;
@@ -639,6 +655,25 @@ table
 }
 
 .profileImage img{max-width: 200px;}
+
+.profileEdit
+{
+    width: 200px;
+    height: 50px;
+    
+    display: block;
+    margin: 10px 30px;
+
+    color: white;
+    line-height: 50px;
+    text-align: center;
+    vertical-align: middle;
+    float: left;
+    
+    background-color: #a7393b;
+}
+
+.profileEdit:hover{font-size: 16px}
 
 /*
 *   Wszystkie style od działu Profil
