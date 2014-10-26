@@ -262,6 +262,16 @@ a:hover
     background-image: url(../Images/cms/settings_button.png);              
 }
 
+#tasks
+{
+    background-image: url(../Images/cms/users_button.png);     
+}
+
+#tasks:hover
+{
+    background-image: url(../Images/cms/users_button.png), url(../Images/cms/hover.png);       
+}
+
 #help
 {
     background-image: url(../Images/cms/help_button.png);                  
@@ -614,11 +624,113 @@ table
     height: 200px;
     display: block;
     float: left;
-    background-color: burlywood;
 }
+
+.profileImage img{max-width: 200px;}
 
 /*
 *   Wszystkie style od działu Profil
+*   -------------------Koniec-------------------
+*/
+
+/*
+*   Wszystkie style od działu Zadania
+*   -------------------Start-------------------
+*/
+
+.taskContent
+{
+    width: 1000px;
+    height: 650px;
+    margin: 0 auto;
+    padding: 1px;
+    background-color: #70a031;
+}
+
+.taskAdd
+{
+    width: 960px;
+    height: 50px;
+    margin: 10px auto;
+    background-color: #84af4b;
+}
+
+.taskOwner
+{
+    width: 20%;
+    height: 50px;
+    float:left;
+    
+    border: 0;
+    font-size: 16px;
+    color: white;
+    background-color: rgba(255,255,255,0.3);
+}
+
+.taskOwner option
+{
+    border: 0;
+    font-size: 16px;
+    color: white;
+    background-color: #84af4b;   
+}
+
+.taskDescription
+{
+    width: 60%;
+    height: 50px;
+    float: left;
+    
+    border: 0;
+    font-size: 16px;
+    color: white;
+    background-color: rgba(255,255,255,0.3);
+}
+
+#taskDone
+{
+    width: 80%;    
+}
+
+.clearDone
+{
+    width: 100%;
+    height: 50px;
+    float: left;
+    
+    border: 0;
+//    font-size: 16px;
+    color: white;
+    background-color: #a7393b;
+}
+
+.taskSet
+{
+    width: 20%;
+    height: 50px;
+    display: block;
+    border: 0px;
+    color: white;
+    line-height: 50px;
+    text-align: center;
+    vertical-align: middle;
+    
+    background-color: #a7393b;
+}
+
+.taskInProgres
+{
+    width: 960px;
+    height: 280px;
+    margin: 10px auto;
+    
+    overflow-y: scroll;
+
+    background-color: #84af4b; 
+}
+
+/*
+*   Wszystkie style od działu Zadania
 *   -------------------Koniec-------------------
 */
 

@@ -13,7 +13,10 @@
  */
 class ProfileMenager extends DatabaseEditor 
 {
-    public function __construct($_colNames = array(), $_target) {
+    private $doneButton = '<button type="submit" class="taskSet" value="done_task">Wykonane</button>';
+    
+    public function __construct($_colNames = array(), $_target) 
+    {
         parent::__construct($_colNames, $_target, "profile");
     }
 
@@ -33,17 +36,40 @@ class ProfileMenager extends DatabaseEditor
     {
         echo '<div class="profileContainer">';
         echo '<div class="prfileDisplay">';
-        echo '<a class="profileImage"><img src="../../Assets/Images/cms/placeholder.jpg"/></a>';
-        echo '<p>Joanna Dark</p>';
-        echo '<p>JoaDar</p>';
+        echo '<a class="profileImage"><img src="./Data/Images/'.$_SESSION['user']->GetUserImage().'"/></a>';
+        echo '<p>'.$_SESSION['user']->GetUserName().'</p>';
+        echo '<p>'.$_SESSION['user']->GetUserLogin().'</p>';
         echo '</div>';
         echo '<div class="contentContainer">';
         echo '<p>O mnie</p>';
-        echo '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin egestas tellus sed eleifend pretium. Sed molestie ipsum eget mauris pellentesque euismod. Fusce ullamcorper ligula nec tellus vehicula aliquet. Ut eros urna, sodales in dignissim id, lacinia at dolor. Aliquam ultricies ac ex ullamcorper semper. Nullam ipsum eros, viverra feugiat semper in, tempor ut lacus. Nulla ac nibh sed tellus feugiat tincidunt nec semper magna. In hac habitasse platea dictumst. Mauris ut imperdiet quam. Pellentesque malesuada mattis vulputate. Donec sit amet ante a purus auctor mattis in in nunc. Pellentesque molestie pulvinar bibendum. Vestibulum vel lacus mauris. Nam ac tortor felis. Ut risus nunc, feugiat non erat congue, placerat suscipit quam. Cras vestibulum venenatis interdum.</p>';
+        echo '<p>'.$_SESSION['user']->GetUserAbaut().'</p>';
         echo '</div>';
         echo '<div class="contentContainer">';
         echo '<p>Zadania</p>';
-        echo '<div class="userTask"></div>';
+        echo '<div class="userTask">';
+        
+            $q = "SELECT * FROM `tasks` WHERE `UserId` = ".$_SESSION['user']->GetUserId()." AND `Status` = 0 ORDER BY `Id` ASC";
+        //    echo $q;
+            $ins = mysql_query($q);
+
+            while($print =  mysql_fetch_array($ins))
+            {
+                $q = "SELECT `Name`, `Surname` FROM `users` WHERE `Id` = ".$print['UserId'];
+            //    echo $q;
+                $ins1 = mysql_query($q);
+
+                $print1 = mysql_fetch_array($ins1);
+
+            //    echo '<form action="' . $this->Target . '" method="post">';    
+                echo '<div class="taskOwner">'.$print1['Name'].' '.$print1['Surname'].'</div>';
+
+                echo '</select>';
+                echo '<div type="text" class="taskDescription">'.$print['Description'].'</div>';
+                echo $this->doneButton;
+            //    echo '</form>';
+            }
+
+        echo '</div>';
         echo '</div>';
         echo '</div>';
         

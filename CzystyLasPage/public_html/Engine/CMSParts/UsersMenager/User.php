@@ -16,12 +16,18 @@ class User
     private $Id;
     private $Name;
     private $Surname;
+    private $Login;
+    private $Image;
+    private $Abaut;
     
-    public function __construct($_id, $_name, $_surname) 
+    public function __construct($_id, $_name, $_surname, $_login, $_image, $_Abaut) 
     {
-        $this->id = $_id;
+        $this->Id = $_id;
         $this->Name = $_name;
         $this->Surname = $_surname;
+        $this->Login = $_login;
+        $this->Image = $_image;
+        $this->Abaut = $_Abaut;
     }
     
     public function GetUserName()
@@ -32,5 +38,20 @@ class User
     public function GetUserId() 
     {
         return $this->Id;
+    }
+    
+    public function GetUserLogin() 
+    {
+        return $this->Login;
+    }
+    
+    public function GetUserImage()
+    {
+        return $this->Image;
+    }
+    
+    public function GetUserAbaut() 
+    {
+        return $this->Abaut;
     }
 }

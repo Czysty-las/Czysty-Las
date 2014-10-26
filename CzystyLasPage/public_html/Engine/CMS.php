@@ -5,7 +5,9 @@
 include '../Engine/CMSParts/Dadabase/DatabaseEditor.php';
 include './CMSParts/Dadabase/Database.php';
 include './CMSParts/News/NewsMenager.php';
+include './CMSParts/CalendarMenager/CalendarMenager.php';
 include './CMSParts/InForestMenager/InForestMenager.php';
+include './CMSParts/TaskMenager/TaskMenager.php';
 include './CMSParts/UsersMenager/UsersMenager.php';
 include './CMSParts/UsersMenager/User.php';
 include '../Engine/CMSParts/UsersMenager/ProfileMenager.php';
@@ -148,6 +150,9 @@ session_start();
             {
                 switch ($_GET['function'])
                 {
+                    case "tasks":
+                        $_SESSION['tasks']->Show();
+                        break;
                     case "profile":
                         $_SESSION['profile']->Show();
                         break;
