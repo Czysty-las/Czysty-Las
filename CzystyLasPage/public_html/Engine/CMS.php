@@ -5,6 +5,7 @@
 include '../Engine/CMSParts/Dadabase/DatabaseEditor.php';
 include './CMSParts/Dadabase/Database.php';
 include './CMSParts/News/NewsMenager.php';
+include './CMSParts/GalleryMenager/GalleryMenager.php';
 include './CMSParts/CalendarMenager/CalendarMenager.php';
 include './CMSParts/InForestMenager/InForestMenager.php';
 include './CMSParts/TaskMenager/TaskMenager.php';
@@ -45,12 +46,16 @@ session_start();
                 header( 'Location: CMS.php?function=tasks' ) ;
                 break;
             case 'add_task':
-                $_SESSION['tasks']->Add(array($_POST['UserId'],$_POST['Description']));
+                $_SESSION['tasks']->Add(array(
+                    $_POST['UserId'],
+                    $_POST['Description']
+                    ));
                 header( 'Location: CMS.php?function=tasks' ) ;
                 break;
             case 'edit_profile':
                 $photoTmpName   = '';
                 $photoName      = '';
+                
                 if(isset($_FILES['Photo']))
                 {
                     $photoTmpName   = $_FILES['Photo']['tmp_name'];
@@ -76,8 +81,34 @@ session_start();
                 $_SESSION['profile']->Delete($_POST['Id']);
                 header( 'Location: CMS.php?function=inforest' ) ;  //  Odswieżenie strony.                
                 break;
+            case 'add_gallery':
+                $_SESSION['inforest']->Add(array(
+                    $_FILES['Photo']['tmp_name'], 
+                    $_POST['Title'], 
+                    $_POST['Description'], 
+                    $_FILES['Photo']['name']
+                    ));
+                header( 'Location: CMS.php?function=inforest' ) ;  //  Odswieżenie strony. 
+                break;
+             case 'delete_gallery':
+                $_SESSION['inforest']->Delete($_POST['Id']);
+                header( 'Location: CMS.php?function=inforest' ) ;  //  Odswieżenie strony.                
+                break;
+            case 'edit_gallery':
+                $_SESSION['inforest']->Edit(array(
+                    $_POST['Id'], 
+                    $_POST['Photo'], 
+                    $_POST['Title'], 
+                    $_POST['Description']));
+                header( 'Location: CMS.php?function=inforest' ) ;  //  Odswieżenie strony.                
+                break;
             case 'add_inforest':
-                $_SESSION['inforest']->Add(array($_FILES['Photo']['tmp_name'], $_POST['Title'], $_POST['Description'], $_FILES['Photo']['name']));
+                $_SESSION['inforest']->Add(array(
+                    $_FILES['Photo']['tmp_name'], 
+                    $_POST['Title'], 
+                    $_POST['Description'], 
+                    $_FILES['Photo']['name']
+                    ));
                 header( 'Location: CMS.php?function=inforest' ) ;  //  Odswieżenie strony. 
                 break;
              case 'delete_inforest':
@@ -85,11 +116,19 @@ session_start();
                 header( 'Location: CMS.php?function=inforest' ) ;  //  Odswieżenie strony.                
                 break;
             case 'edit_inforest':
-                $_SESSION['inforest']->Edit(array($_POST['Id'], $_POST['Photo'], $_POST['Title'], $_POST['Description']));
+                $_SESSION['inforest']->Edit(array(
+                    $_POST['Id'], 
+                    $_POST['Photo'], 
+                    $_POST['Title'], 
+                    $_POST['Description']));
                 header( 'Location: CMS.php?function=inforest' ) ;  //  Odswieżenie strony.                
                 break;
             case 'add_calendar':
-                $_SESSION['calendar']->Add(array($_POST['Date'], $_POST['Topic'], $_POST['Description']));
+                $_SESSION['calendar']->Add(array(
+                    $_POST['Date'], 
+                    $_POST['Topic'], 
+                    $_POST['Description']
+                    ));
                 header( 'Location: CMS.php?function=calendar' ) ;  //  Odswieżenie strony.
                 break;
              case 'delete_calendar':
@@ -97,7 +136,13 @@ session_start();
                 header( 'Location: CMS.php?function=calendar' ) ;  //  Odswieżenie strony.                
                 break;
             case 'edit_calendar':
-                $_SESSION['calendar']->Edit(array($_POST['Id'], $_POST['UserId'], $_POST['Date'], $_POST['Topic'], $_POST['Description']));
+                $_SESSION['calendar']->Edit(array(
+                    $_POST['Id'], 
+                    $_POST['UserId'], 
+                    $_POST['Date'], 
+                    $_POST['Topic'], 
+                    $_POST['Description']
+                    ));
                 header( 'Location: CMS.php?function=calendar' ) ;  //  Odswieżenie strony.                
                 break;
             case 'add_news':
@@ -110,12 +155,24 @@ session_start();
                 header( 'Location: CMS.php?function=news' ) ;  //  Odswieżenie strony.                
                 break;
             case 'edit_news':
-                $_SESSION['news']->Edit(array($_POST['Id'], $_POST['UserId'], $_POST['Topic'], $_POST['Content']));
+                $_SESSION['news']->Edit(array(
+                    $_POST['Id'], 
+                    $_POST['UserId'], 
+                    $_POST['Topic'], 
+                    $_POST['Content']
+                    ));
                 header( 'Location: CMS.php?function=news' ) ;  //  Odswieżenie strony.                
                 break;
             case 'add_user':
                 echo $_POST['function'];
-                $_SESSION['users']->Add(array($_POST['Name'], $_POST['Surname'], $_POST['Email'], $_POST['Rights'], $_POST['Login'], $_POST['Password']));
+                $_SESSION['users']->Add(array(
+                    $_POST['Name'], 
+                    $_POST['Surname'], 
+                    $_POST['Email'], 
+                    $_POST['Rights'], 
+                    $_POST['Login'], 
+                    $_POST['Password']
+                        ));
                 header( 'Location: CMS.php?function=users' ) ;  //  Odswieżenie strony.
                 break;
             case 'delete_user':
@@ -123,7 +180,14 @@ session_start();
                 header( 'Location: CMS.php?function=users' ) ;  //  Odswieżenie strony.                
                 break;
             case 'edit_user':
-                $_SESSION['users']->Edit(array($_POST['Id'], $_POST['Name'], $_POST['Surname'], $_POST['Email'], $_POST['Rights'], $_POST['Login'], $_POST['Password']));
+                $_SESSION['users']->Edit(array(
+                    $_POST['Id'], $_POST['Name'], 
+                    $_POST['Surname'], 
+                    $_POST['Email'], 
+                    $_POST['Rights'], 
+                    $_POST['Login'], 
+                    $_POST['Password']
+                    ));
                 header( 'Location: CMS.php?function=users' ) ;  //  Odswieżenie strony.
                 break;
         }
@@ -169,6 +233,15 @@ session_start();
                                 </script>
                                 ";
                             break;
+                        case "gallery":
+                            echo "        
+                                <script>
+                                    CKEDITOR.config.height = '450px';
+                                    CKEDITOR.config.resize_enabled = false;
+                                </script>
+                                ";
+                            break;
+                        
                     }
                 }
                 
@@ -197,6 +270,9 @@ session_start();
             {
                 switch ($_GET['function'])
                 {
+                    case "gallery":
+                        $_SESSION['gallery']->Show();
+                        break;
                     case "tasks":
                         $_SESSION['tasks']->Show();
                         break;

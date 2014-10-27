@@ -21,13 +21,9 @@ class ProfileMenager extends DatabaseEditor
         $this->EditButton = '<button type="submit" class="taskSet" name ="function" value="edit_profile">Zapisz</button>';
     }
 
-    public function Add($_params = array()) {
-        
-    }
+    public function Add($_params = array()) {}
 
-    public function Delete($_param) {
-        
-    }
+    public function Delete($_param) {}
 
     public function Edit($_params = array()) 
     {

@@ -232,6 +232,11 @@ a:hover
     background-image: url(../Images/cms/gallery_button.png);   
 }
 
+#gallery:hover
+{
+    background-image: url(../Images/cms/gallery_button.png), url(../Images/cms/hover.png);          
+}
+
 #InForest
 {
     background-image: url(../Images/cms/w_lesie_button.png);       
@@ -785,6 +790,84 @@ table
 
 /*
 *   Wszystkie style od działu Zadania
+*   -------------------Koniec-------------------
+*/
+
+/*
+*   Wszystkie style od działu Galeria
+*   -------------------Start-------------------
+*/
+
+.galleryContainer
+{
+    width: 1000px;
+    height: 650px;
+    margin: 0 auto;
+    padding: 1px;
+    background-color: #70a031;
+    overflow-y: scroll;
+}
+
+.galleryContainer .editorContainer
+{
+    width: 680px;
+    height: 450px;
+    background-color: azure;
+    margin: 10px auto;
+    float: none;
+}
+
+.imagesContainer
+{
+    width: 960px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.galleryImage
+{
+  width: 100px;
+  height: 100px;
+  background-size: cover;
+  float: left;
+  margin: 3px;
+}
+
+#addImage
+{
+    width: 100px;
+    height: 100px;
+    margin: 3px;
+    color: white;
+    line-height: 100px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 60px;
+    font-weight: bold;
+    background-color: #a7393b;
+    display: block;
+}
+
+.galleryContainer textarea
+{
+    width: 100%;
+    height: 450px;
+}
+
+.galleryContainer a
+{
+    margin: 10px auto;
+    width: 960px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 16px;
+    background-color: #84af4b;
+    display: block;
+}
+
+
+/*
+*   Wszystkie style od działu Galeria
 *   -------------------Koniec-------------------
 */
 
