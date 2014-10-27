@@ -19,8 +19,9 @@ class User
     private $Login;
     private $Image;
     private $Abaut;
+    private $Mail;
     
-    public function __construct($_id, $_name, $_surname, $_login, $_password, $_image, $_Abaut) 
+    public function __construct($_id, $_name, $_surname, $_login, $_password, $_mail, $_image, $_abaut) 
     {
         $this->Id = $_id;
         $this->Name = $_name;
@@ -28,12 +29,19 @@ class User
         $this->Login = $_login;
         $this->Password = $_password;
         $this->Image = $_image;
-        $this->Abaut = $_Abaut;
+        $this->Abaut = $_abaut;
+        $this->Mail = $_mail;
+        
     }
     
     public function GetName()
     {
         return $this->Name;
+    }
+  
+    public function SetName($name) 
+    {
+        $this->Name = $name;
     }
     
     public function GetSurname()
@@ -41,6 +49,11 @@ class User
         return $this->Surname;
     }
     
+    public function SetSurame($surname) 
+    {
+        $this->Surname = $surname;
+    }
+ 
     public function GetUserName()
     {
         return $this->Name.' '.$this->Surname;
@@ -56,6 +69,11 @@ class User
         return $this->Login;
     }
     
+    public function SetUserLogin($login) 
+    {
+        $this->Login = $login;
+    }
+
     public function GetUserPassword()
     {
         return $this->Password;
@@ -65,9 +83,29 @@ class User
     {
         return $this->Image;
     }
+    public function SetUserImage($image)
+    {
+        $this->Image = $image;
+    }
     
     public function GetUserAbaut() 
     {
         return $this->Abaut;
     }
+    
+    public function SetUserAbaut($abaut) 
+    {
+        $this->Abaut = $abaut;
+    }
+
+    public function GetUserMail()
+    {
+        return $this->Mail;
+    }
+    
+    public function SetUserMail($mail)
+    {
+        $this->Mail = $mail;
+    }
+
 }

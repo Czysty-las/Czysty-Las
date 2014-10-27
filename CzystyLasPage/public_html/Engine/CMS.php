@@ -48,9 +48,29 @@ session_start();
                 $_SESSION['tasks']->Add(array($_POST['UserId'],$_POST['Description']));
                 header( 'Location: CMS.php?function=tasks' ) ;
                 break;
-            case 'add_profile':
-                $_SESSION['profile']->Add(array($_FILES['Photo']['tmp_name'], $_POST['Title'], $_POST['Description'], $_FILES['Photo']['name']));
-                header( 'Location: CMS.php?function=inforest' ) ;  //  Odswieżenie strony. 
+            case 'edit_profile':
+                $photoTmpName   = '';
+                $photoName      = '';
+                if(isset($_FILES['Photo']))
+                {
+                    $photoTmpName   = $_FILES['Photo']['tmp_name'];
+                    $photoName      = $_FILES['Photo']['name'];
+                //    echo $photoName, $photoTmpName;
+                }
+                
+                $_SESSION['profile']->Edit(array(
+                    $photoTmpName,                  //  0           
+                    $photoName,                     //  1          
+                    $_POST['Id'],                   //  2
+                    $_POST['Name'],                 //  3
+                    $_POST['Surname'],              //  4
+                    $_POST['Email'],                //  5
+                    $_POST['Login'],                //  6
+                    $_POST['Password'],             //  7
+                    $_POST['About'],                //  8
+                    $_POST['Password1']             //  9    
+                    ));
+                header( 'Location: CMS.php?function=profile' ) ;  //  Odswieżenie strony. 
                 break;
              case 'delete_profile':
                 $_SESSION['profile']->Delete($_POST['Id']);
