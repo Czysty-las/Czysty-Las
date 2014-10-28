@@ -30,6 +30,9 @@ session_start();
     {
         switch ($_POST['function'])
         {
+            case 'add_photos':
+                $_SESSION['gallery']->AddPhoto($_FILES['files']);
+                break;
             case 'done_task':
                 $_SESSION['tasks']->Done($_POST['Id']);
                 if($_POST['profile'])
