@@ -94,6 +94,12 @@ session_start();
                         );
                 header( 'Location: CMS.php?function=gallery&Id='.$_POST['Id'] );
                 break;
+            case 'delete_photo':
+                $_SESSION['gallery']->DeletePhoto(
+                        $_POST['Id']
+                        );
+                header( 'Location: CMS.php?function=gallery&Id='.$_POST['GalleryId'] );
+                break;
              case 'delete_gallery':
                 $_SESSION['gallery']->Delete($_POST['Id']);
                 header( 'Location: CMS.php?function=gallery' ) ;  //  Odswieżenie strony.                

@@ -12,11 +12,13 @@
  * @author Lukasz
  */
 class GalleryMenager extends DatabaseEditor {
+    
+    private $DeletePhoto = '<button type="submit" name="function" value="delete_photo" class="newsDeleteItem">-</button>';
 
     public function __construct($_colNames = array(), $_target) {
         parent::__construct($_colNames, $_target, "gallery");
 
-        $this->DeleteButton = '<button type="submit" name="function" value="delete_news" class="newsDeleteItem">-</button>';
+        $this->DeleteButton = '<button type="submit" name="function" value="delete_gallery" class="newsDeleteItem">-</button>';
     }
 
     public function AddPhoto($_param, $galleryId) {
@@ -28,6 +30,18 @@ class GalleryMenager extends DatabaseEditor {
             $ins = mysql_query($q);
         }
     }
+    
+    public function DeletePhoto($param) {
+        $q = "SELECT * FROM `images` WHERE `Id` = ".$param;
+        $ins = mysql_query($q);
+        
+        $delete = mysql_fetch_array($ins);
+        
+        $photo = "./Data/Images/" . $delete['Name'];
+        $q = "DELETE FROM `czysty-las-database`.`images` WHERE `images`.`Id` = " . $delete['Id'];
+        mysql_query($q);
+        unlink($photo);
+    }
 
     public function Add($_params = array()) {
         $today = date("m.d.y");
@@ -37,7 +51,18 @@ class GalleryMenager extends DatabaseEditor {
     }
 
     public function Delete($_param) {
-        
+        $q = "SELECT * FROM `images` WHERE `GalleryId` = " . $_param;
+        $ins = mysql_query($q);
+
+        while ($delete = mysql_fetch_array($ins)) {
+            $photo = "./Data/Images/" . $delete['Name'];
+            $q = "DELETE FROM `czysty-las-database`.`images` WHERE `images`.`Id` = " . $delete['Id'];
+            mysql_query($q);
+            unlink($photo);
+        }
+
+        $q = "DELETE FROM `czysty-las-database`.`gallery` WHERE `gallery`.`Id` = " . $_param;
+        mysql_query($q);
     }
 
     public function Edit($_params = array()) {
@@ -54,7 +79,8 @@ class GalleryMenager extends DatabaseEditor {
             $print = mysql_fetch_array($ins);
             $galleryId = $print['Id'];
             echo '<div class="galleryContainer">';
-            if(!isset($_GET['add']))echo '<form method="post" action="CMS.php">';
+            if (!isset($_GET['add']))
+                echo '<form method="post" action="CMS.php">';
             echo '<input type="text" hidden="true" name="Id" value="' . $galleryId . '">';
             echo '<center><input type="text" name="Title" value="' . $print['Title'] . '"></center>';
             echo '<div class="editorContainer">';
@@ -67,19 +93,22 @@ class GalleryMenager extends DatabaseEditor {
 
             while ($print = mysql_fetch_array($ins)) {
                 $url = "./Data/Images/" . $print['Name'];
-                echo '<div class="galleryImage" style="background-image: url(' . $url . ');"></div>';
+                echo '<form method="post" enctype="multipart/form-data" action="' . $this->Target . '">';
+                echo '<input type="text" hidden="true" name="GalleryId" value="' . $galleryId . '">';
+                echo '<input type="text" hidden="true" name="Id" value="' . $print['Id'] . '">';
+                echo '<div class="galleryImage" style="background-image: url(' . $url . ');">'.$this->DeletePhoto.'</div>';
+                echo '</form>';
             }
             if (isset($_GET['add'])) {
-                echo '<form method="post" enctype="multipart/form-data" action="' . $this->Target . '">
-                        <fieldset>
-                          <legend>Prześlij pliki</legend>
-                          <label>Dodaj pliki:';
+                echo '<form method="post" enctype="multipart/form-data" action="' . $this->Target . '">';
                 echo '<input type="text" hidden="true" name="Id" value="' . $galleryId . '">';
                 echo '<input type="file" multiple name="files[]">
-                          </label><br>
-                          <input type="submit" name="function" value="add_photos">
-                        </fieldset>
-                      </form>';
+                    <div class="mainButtons"> 
+                        <center>
+                            <button type="submit" name="function" value="add_photos" class="galleryImage" id="addImage">+</button>
+                        </center>
+                    </div>
+                    </form>';
             } else {
                 echo '<a class="galleryImage" id="addImage" href="CMS.php?function=gallery&Id=' . $_GET['Id'] . '&add=true">+</a>';
             }
@@ -88,7 +117,10 @@ class GalleryMenager extends DatabaseEditor {
             echo '<button class="newsOK" type="submit" name="function" value="edit_gallery">Zapisz</button>';
             echo '<a class="newsOK" href="CMS.php?function=gallery">Powrót</a>';
             echo '</center></div>';
-            if(!isset($_GET['add'])) echo '</form>';
+            
+            if (!isset($_GET['add']))
+                echo '</form>';
+            
             echo '</div>';
         } else {
             $q = "SELECT * FROM `gallery`";
@@ -106,7 +138,10 @@ class GalleryMenager extends DatabaseEditor {
                 echo '</center></div>';
             }
             while ($print = mysql_fetch_array($ins)) {
+                echo '<form method="POST" action="' . $this->Target . '">';
+                echo '<input type="text" hidden="true" name="Id" value="' . $print['Id'] . '">';
                 echo '<a class ="galleryLink" href="CMS.php?function=gallery&Id=' . $print['Id'] . '">' . $print['Title'] . $this->DeleteButton . '</a>';
+                echo '</form>';
             }
             echo '</div>';
         }
