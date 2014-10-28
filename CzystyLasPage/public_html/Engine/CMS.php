@@ -96,16 +96,15 @@ session_start();
                 break;
              case 'delete_gallery':
                 $_SESSION['gallery']->Delete($_POST['Id']);
-                header( 'Location: CMS.php?function=inforest' ) ;  //  Odswieżenie strony.                
+                header( 'Location: CMS.php?function=gallery' ) ;  //  Odswieżenie strony.                
                 break;
             case 'edit_gallery':
                 $_SESSION['gallery']->Edit(array(
-                    $_POST['Id'], 
-                    $_POST['Photo'], 
+                    $_POST['Id'],  
                     $_POST['Title'], 
                     $_POST['Description']
                     ));
-                header( 'Location: CMS.php?function=inforest' ) ;  //  Odswieżenie strony.                
+                header( 'Location: CMS.php?function=gallery&Id='.$_POST['Id'] ) ;  //  Odswieżenie strony.                
                 break;
             case 'add_inforest':
                 $_SESSION['inforest']->Add(array(
