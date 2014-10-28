@@ -18,16 +18,23 @@ class GalleryMenager extends DatabaseEditor {
 
         $this->DeleteButton = '<button type="submit" name="function" value="delete_news" class="newsDeleteItem">-</button>';
     }
-    public function AddPhoto($_param){
+    public function AddPhoto($_param, $galleryId){
       echo count($_param['size']);
       
       for($i = 0; $i < count($_param['size']); ++$i ){
           move_uploaded_file($_param['tmp_name'][$i],"Data/Images/".$_param['name'][$i]);
+           $q = "INSERT INTO `czysty-las-database`.`images` (`Id`, `Name`, `GalleryId`) VALUES (NULL, '".$_param['name'][$i]."', '$galleryId');";
+           $ins = mysql_query($q);
       }
+      
+     
     }
     
     public function Add($_params = array()) {
-        
+        $today = date("m.d.y"); 
+        $userid = $_SESSION['user']->GetUserId();
+        $q = "INSERT INTO `czysty-las-database`.`gallery` (`Id`, `Title`, `Description`, `Date`, `UserId`) VALUES (NULL, '$_params[0]', '????', '$today', '$userid')";
+        $ins = mysql_query($q);
     }
 
     public function Delete($_param) {
@@ -40,14 +47,15 @@ class GalleryMenager extends DatabaseEditor {
 
     public function Show() {
         if (isset($_GET['Id'])) {
+            
             $q = "SELECT * FROM `gallery` WHERE Id = " . $_GET['Id'];
             $ins = mysql_query($q);
 
             $print = mysql_fetch_array($ins);
-
+            $galleryId = $print['Id'];
             echo '<div class="galleryContainer">';
-            echo '<input type="text" hidden="true" name="Id" value="' . $print['Id'] . '">';
-            echo '<input type="text" name="Id" value="' . $print['Title'] . '">';
+            echo '<input type="text" hidden="true" name="Id" value="' . $galleryId . '">';
+            echo '<input type="text" name="Title" value="' . $print['Title'] . '">';
             echo '<div class="editorContainer">';
             echo '<textarea name="Description">' . $print['Description'] . '</textarea>';
             echo '</div>';
@@ -61,18 +69,16 @@ class GalleryMenager extends DatabaseEditor {
                 echo '<div class="galleryImage" style="background-image: url(' . $url . ');"></div>';
             }
             if (isset($_GET['add'])) {
-                //         echo '<div class="galleryContainer">';
                 echo '<form method="post" enctype="multipart/form-data" action="'.$this->Target.'">
                         <fieldset>
                           <legend>Prześlij pliki</legend>
                           <label>Dodaj pliki:';
-                echo '<input type="text" hidden="true" name="Id" value="' . $print['Id'] . '">';
+                echo '<input type="text" hidden="true" name="Id" value="' . $galleryId . '">';
                 echo '<input type="file" multiple name="files[]">
                           </label><br>
                           <input type="submit" name="function" value="add_photos">
                         </fieldset>
                       </form>';
-                //     echo '</div>';
             } else {
                 echo '<a class="galleryImage" id="addImage" href="CMS.php?function=gallery&Id=' . $_GET['Id'] . '&add=true">+</a>';
             }
@@ -83,8 +89,20 @@ class GalleryMenager extends DatabaseEditor {
             $ins = mysql_query($q);
 
             echo '<div class="galleryContainer">';
+            if (isset($_GET['new'])) {
+                echo '<form method="POST" action="'.$this->Target.'">';
+                echo '<input type="text" name="Title">';
+                echo '<input type="submit" name="function" value="add_gallery">';
+                echo '</form>';              
+            }
+            else {
+                echo '<div class="mainButtons"> <center>';
+                echo '<a class="newsOK" href="CMS.php?function=gallery&new=true">Dodaj</a>';
+                //    echo '<a class="newsOK" href="CMS.php?function=gallery">Powrót</a>';
+                echo '</center></div>';
+            }
             while ($print = mysql_fetch_array($ins)) {
-                echo '<a href="CMS.php?function=gallery&Id=' . $print['Id'] . '">' . $print['Title'] . $this->DeleteButton . '</a>';
+                echo '<a class ="galleryLink" href="CMS.php?function=gallery&Id=' . $print['Id'] . '">' . $print['Title'] . $this->DeleteButton . '</a>';
             }
             echo '</div>';
         }

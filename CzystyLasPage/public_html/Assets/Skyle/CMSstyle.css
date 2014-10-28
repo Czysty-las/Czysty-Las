@@ -807,6 +807,13 @@ table
     background-color: #70a031;
     overflow-y: scroll;
 }
+.mainButtons
+{
+    width: 100%;
+    height: 70px;
+    margin: 0 auto;
+}
+
 
 .galleryContainer .editorContainer
 {
@@ -854,7 +861,7 @@ table
     height: 450px;
 }
 
-.galleryContainer a
+.galleryLink
 {
     margin: 10px auto;
     width: 960px;

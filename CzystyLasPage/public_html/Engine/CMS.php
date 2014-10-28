@@ -30,9 +30,6 @@ session_start();
     {
         switch ($_POST['function'])
         {
-            case 'add_photos':
-                $_SESSION['gallery']->AddPhoto($_FILES['files']);
-                break;
             case 'done_task':
                 $_SESSION['tasks']->Done($_POST['Id']);
                 if($_POST['profile'])
@@ -85,24 +82,29 @@ session_start();
                 header( 'Location: CMS.php?function=inforest' ) ;  //  Odswieżenie strony.                
                 break;
             case 'add_gallery':
-                $_SESSION['inforest']->Add(array(
-                    $_FILES['Photo']['tmp_name'], 
-                    $_POST['Title'], 
-                    $_POST['Description'], 
-                    $_FILES['Photo']['name']
+                $_SESSION['gallery']->Add(array(
+                    $_POST['Title']
                     ));
-                header( 'Location: CMS.php?function=inforest' ) ;  //  Odswieżenie strony. 
+                header( 'Location: CMS.php?function=gallery' ) ;  //  Odswieżenie strony. 
+                break;
+            case 'add_photos':
+                $_SESSION['gallery']->AddPhoto(
+                        $_FILES['files'],
+                        $_POST['Id']
+                        );
+                header( 'Location: CMS.php?function=gallery&Id='.$_POST['Id'] );
                 break;
              case 'delete_gallery':
-                $_SESSION['inforest']->Delete($_POST['Id']);
+                $_SESSION['gallery']->Delete($_POST['Id']);
                 header( 'Location: CMS.php?function=inforest' ) ;  //  Odswieżenie strony.                
                 break;
             case 'edit_gallery':
-                $_SESSION['inforest']->Edit(array(
+                $_SESSION['gallery']->Edit(array(
                     $_POST['Id'], 
                     $_POST['Photo'], 
                     $_POST['Title'], 
-                    $_POST['Description']));
+                    $_POST['Description']
+                    ));
                 header( 'Location: CMS.php?function=inforest' ) ;  //  Odswieżenie strony.                
                 break;
             case 'add_inforest':
