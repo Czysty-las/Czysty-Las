@@ -14,6 +14,7 @@ html
 body
 {   
     margin: 0; 
+    height: 100%
 }
 
 form
@@ -141,7 +142,7 @@ a:hover
 {
     margin: 0 auto;
     min-width: 1000px;
-    min-height: 1000px; 
+    height: 100%;
     
     background-color: #84af4b;
 }
@@ -149,7 +150,7 @@ a:hover
 .Content 
 {
     margin: 0 auto;
-    height: 1000px;
+    height: 655px;
     min-width: 1000px;
     max-width: 1200px;
 }
@@ -537,7 +538,7 @@ table
     height: 300px;
     margin: 0 auto 20px;
 
-     display: block;
+    display: block;
 }
 
 .inforestImageHolder
@@ -815,10 +816,28 @@ table
     overflow-y: scroll;
 }
 
+.galleryContainer input
+{
+    width: 960px;
+    height: 25px;
+    line-height: 25px;
+    border: 0;
+    font-size: 16px;
+    color: white;
+    background-color: rgba(255,255,255,0.3);    
+}
+
+.mainButtons
+{
+    width: 100%;
+    min-height: 70px;
+    margin: 0 auto;
+}
+
 .galleryContainer .editorContainer
 {
-    width: 680px;
-    height: 450px;
+    width: 960px;
+    height: 585px;
     background-color: azure;
     margin: 10px auto;
     float: none;
@@ -827,8 +846,9 @@ table
 .imagesContainer
 {
     width: 960px;
-    height: 100%;
+    min-height: 100px;
     margin: 0 auto;
+    overflow: auto;
 }
 
 .galleryImage
@@ -839,7 +859,22 @@ table
   float: left;
   margin: 3px;
 }
-
+.mainButtons .galleryImage
+{
+  width: 100px;
+  height: 100px;
+  background-size: cover;
+  float: none;
+  margin: 3px;
+}
+/*
+.galleryImage:hover
+{
+  width: 400px;
+  height: 400px;
+//  overflow: visible;
+}
+*/
 #addImage
 {
     width: 100px;
@@ -853,6 +888,7 @@ table
     font-weight: bold;
     background-color: #a7393b;
     display: block;
+    border: 0;
 }
 
 .galleryContainer textarea
@@ -861,7 +897,7 @@ table
     height: 450px;
 }
 
-.galleryContainer a
+.galleryLink
 {
     margin: 10px auto;
     width: 960px;
@@ -871,7 +907,6 @@ table
     background-color: #84af4b;
     display: block;
 }
-
 
 /*
 *   Wszystkie style od działu Galeria
