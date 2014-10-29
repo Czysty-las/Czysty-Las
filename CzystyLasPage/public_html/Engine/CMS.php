@@ -29,6 +29,7 @@ $db = new Database('127.0.0.1', 'root', '', 'czysty-las-database');
 
 if (!empty($_POST['function'])) {
     switch ($_POST['function']) {
+        
         /**
          * Sekcja zadań.
          */
@@ -51,7 +52,7 @@ if (!empty($_POST['function'])) {
             $_SESSION['tasks']->Add(array(
                 $_POST['UserId'],
                 $_POST['Description']
-            ));
+                ));
             header('Location: CMS.php?function=tasks');
             break;
         /**
@@ -78,7 +79,7 @@ if (!empty($_POST['function'])) {
                 $_POST['Password'],             //  7
                 $_POST['About'],                //  8
                 $_POST['Password1']             //  9    
-            ));
+                ));
             header('Location: CMS.php?function=profile');  //  Odswieżenie strony. 
             break;
         case 'delete_profile':
@@ -91,19 +92,18 @@ if (!empty($_POST['function'])) {
         case 'add_gallery':
             $_SESSION['gallery']->Add(array(
                 $_POST['Title']
-            ));
+                ));
             header('Location: CMS.php?function=gallery');  //  Odswieżenie strony. 
             break;
         case 'add_photos':
             $_SESSION['gallery']->AddPhoto(
-                    $_FILES['files'], $_POST['Id']
-            );
+                $_FILES['files'], 
+                $_POST['Id']
+                );
             header('Location: CMS.php?function=gallery&Id=' . $_POST['Id']);
             break;
         case 'delete_photo':
-            $_SESSION['gallery']->DeletePhoto(
-                    $_POST['Id']
-            );
+            $_SESSION['gallery']->DeletePhoto($_POST['Id']);
             header('Location: CMS.php?function=gallery&Id=' . $_POST['GalleryId']);
             break;
         case 'delete_gallery':
@@ -115,7 +115,7 @@ if (!empty($_POST['function'])) {
                 $_POST['Id'],
                 $_POST['Title'],
                 $_POST['Description']
-            ));
+                ));
             header('Location: CMS.php?function=gallery&Id=' . $_POST['Id']);  //  Odswieżenie strony.                
             break;
         /**
@@ -127,7 +127,7 @@ if (!empty($_POST['function'])) {
                 $_POST['Title'],
                 $_POST['Description'],
                 $_FILES['Photo']['name']
-            ));
+                ));
             header('Location: CMS.php?function=inforest');  //  Odswieżenie strony. 
             break;
         case 'delete_inforest':
@@ -152,7 +152,7 @@ if (!empty($_POST['function'])) {
                 $_POST['Title'],
                 $_POST['Description'],
                 $_FILES['Photo']['name']
-            ));
+                ));
             header('Location: CMS.php?function=upcycling');  //  Odswieżenie strony. 
             break;
         case 'delete_upcycling':
@@ -165,7 +165,8 @@ if (!empty($_POST['function'])) {
                 $_POST['Id'],
                 $_FILES['Photo'],
                 $_POST['Title'],
-                $_POST['Description']));
+                $_POST['Description']
+                ));
             header('Location: CMS.php?function=upcycling');  //  Odswieżenie strony.                
             break;
         /**
@@ -176,7 +177,7 @@ if (!empty($_POST['function'])) {
                 $_POST['Date'],
                 $_POST['Topic'],
                 $_POST['Description']
-            ));
+                ));
             header('Location: CMS.php?function=calendar');  //  Odswieżenie strony.
             break;
         case 'delete_calendar':
@@ -190,7 +191,7 @@ if (!empty($_POST['function'])) {
                 $_POST['Date'],
                 $_POST['Topic'],
                 $_POST['Description']
-            ));
+                ));
             header('Location: CMS.php?function=calendar');  //  Odswieżenie strony.                
             break;
         /**
@@ -211,7 +212,7 @@ if (!empty($_POST['function'])) {
                 $_POST['UserId'],
                 $_POST['Topic'],
                 $_POST['Content']
-            ));
+                ));
             header('Location: CMS.php?function=news');  //  Odswieżenie strony.                
             break;
         /**
@@ -226,7 +227,7 @@ if (!empty($_POST['function'])) {
                 $_POST['Rights'],
                 $_POST['Login'],
                 $_POST['Password']
-            ));
+                ));
             header('Location: CMS.php?function=users');  //  Odswieżenie strony.
             break;
         case 'delete_user':
@@ -235,13 +236,14 @@ if (!empty($_POST['function'])) {
             break;
         case 'edit_user':
             $_SESSION['users']->Edit(array(
-                $_POST['Id'], $_POST['Name'],
+                $_POST['Id'], 
+                $_POST['Name'],
                 $_POST['Surname'],
                 $_POST['Email'],
                 $_POST['Rights'],
                 $_POST['Login'],
                 $_POST['Password']
-            ));
+                ));
             header('Location: CMS.php?function=users');  //  Odswieżenie strony.
             break;
     }

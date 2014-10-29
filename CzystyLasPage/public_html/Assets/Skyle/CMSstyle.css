@@ -153,6 +153,7 @@ a:hover
     height: 550px;
     min-width: 1000px;
     max-width: 1200px;
+    padding: 1px;
   //  overflow-y: scroll;
 }
 
@@ -264,6 +265,11 @@ a:hover
 #UpCycling
 {
     background-image: url(../Images/cms/upcycling_button.png);           
+}
+
+#UpCycling:hover
+{
+    background-image: url(../Images/cms/upcycling_button.png), url(../Images/cms/hover.png);  
 }
 
 #users
