@@ -340,7 +340,7 @@ if (!empty($_POST['function'])) {
                 case "users":
                     $_SESSION['users']->Show();
                     break;
-                case 'calender':
+                case 'calendar':
                     $_SESSION['calendar']->Show();
                     break;
                 case "inforest":
