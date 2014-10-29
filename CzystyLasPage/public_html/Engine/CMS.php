@@ -265,7 +265,8 @@ if (!empty($_POST['function'])) {
                                     CKEDITOR.config.resize_enabled = false;
                                 </script>
                                 ";
-                    break;                
+                    break;
+                case "upcycling":
                 case "inforest":
                     echo "        
                                 <script>
