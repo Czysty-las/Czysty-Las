@@ -14,6 +14,7 @@ and open the template in the editor.
     font-size: 40px;
     text-align: center;
 }
+
 p
 {
     color: #bccb89;
@@ -23,6 +24,9 @@ p
 {
     background-color: rgba(0,0,0,0.7);
     width: 600px;
-    height: 700px;
-    margin: 100px auto;
+    min-height: 700px;
+    margin: 100px 276px 100px;
+ //   overflow-y: scroll;
+    float: none;
+//    position: absolute;
 }

@@ -20,7 +20,7 @@ echo '</head>';
            echo '  <div class="content">';
             include '../public_html/PageContentScripts/NewsScript.php';
            echo '</div>';
-           
+           echo '<div class="footer"></div>';
         echo '</div>';
      echo '<body>';
 echo '</html>';
