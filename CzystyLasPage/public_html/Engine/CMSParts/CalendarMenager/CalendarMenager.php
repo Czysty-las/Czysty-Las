@@ -40,26 +40,22 @@ class CalendarMenager extends DatabaseEditor
 
     public function Show() 
     {
-        /*
-         * Proszę o anglojęzyczne nazy zmiennych/klass/klas w css.
-         * To się zrobi estetyczny misz masz. ;)
-         * 
-         *  
-         * Pozrawiam. 
-         * 
-         * ;)
-         */
-        echo '<div class="classCalendar1">';   
+        $_id = 0;
+        $q = 'SELECT * FROM `calendar` ORDER BY `calendar`.`Id` DESC';
+        $rekordy = mysql_query($q);
         
         
-        echo '</div>';
+        echo '<div class="CalendarList">';   
         
+        while ($print = mysql_fetch_array($rekordy)) 
+        {
+            
         
+        }
         
-        echo '<div class="classCalendar2">';
+        echo '</div>';   //CalendarList 
         
-        
-        echo '</div>';
+       
     }
 
 //put your code here
