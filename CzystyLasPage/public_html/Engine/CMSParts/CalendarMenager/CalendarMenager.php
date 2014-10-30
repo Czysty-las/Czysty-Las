@@ -41,20 +41,57 @@ class CalendarMenager extends DatabaseEditor
     public function Show() 
     {
         $_id = 0;
+        
         $q = 'SELECT * FROM `calendar` ORDER BY `calendar`.`Id` DESC';
         $rekordy = mysql_query($q);
         
+        if (isset($_GET['id'])) 
+        {
+            $_id = $_GET['id'];
+        }
+
+        echo '<div class="calendarList">';   
         
-        echo '<div class="CalendarList">';   
+        if(isset($_GET['add']) || $_id > 0)
+        {
+            if($_id > 0) 
+            {
+                echo '<form action="' . $this->Target . '" method="post">';    
+            }
+            else     
+            {                
+                echo '<form action="' . $this->Target . '" method="post">';
+                echo '<input type="text" name="' . $this->ColsNames[3] . '" value="Temat" class="calendarItem" id="teopicInput"/>';                
+            }
+        }
         
         while ($print = mysql_fetch_array($rekordy)) 
         {
-            
-        
+                
+            echo '<a class="newsItem" href="CMS.php?function=calender&id=' . $print[$this->ColsNames[0]] . '">' . $print[$this->ColsNames[3]] .'</a>';
         }
         
-        echo '</div>';   //CalendarList 
+        echo '</div>';   //calendarList         
+                
+        echo '<div class="calendarRightSite">';
         
+        if (isset($_GET['add']) || $_id > 0)  
+        {
+            if($_id > 0)    //  Edit
+            {
+                
+            }
+            else            //  Add
+            {
+                
+            }
+        }
+        else
+        {
+            echo '<a class="calendarAddButton" href="CMS.php?function=calender&add=true">Dodaj</a>';
+        }
+        
+        echo '</div>';   //calendarRightSite
        
     }
 

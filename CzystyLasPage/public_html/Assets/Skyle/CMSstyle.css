@@ -480,16 +480,40 @@ table
 *   -------------------Start-------------------
 */
 
-.CalendarList
+.calendarList
 {
     width: 30%;
-    height: 500px;
+    height: 70%;
     overflow-y: scroll;
     float: left; 
-    background-color: rgba(0,255,0,1);
+    background-color: rgba(0,0,0,0.2);
 }
 
+.calendarRightSite
+{
+    width: 70%;
+    height: 70%;
+    float: right; 
+    background-color: rgba(0,0,0,0.2);
+}
 
+.calendarAddButton
+{
+    
+    width: 180px;
+    height: 70px;
+    display: block;
+    line-height: 70px;
+    text-align: center;
+    vertical-align: middle;
+    
+    position:relative;
+    top: 50%;
+    left: 20%;
+    margin: -50px 0 0 -70px;
+    
+    background-color: #a7393b; 
+}
 
 /*
 *   Wszystkie style od działu kalendarza
