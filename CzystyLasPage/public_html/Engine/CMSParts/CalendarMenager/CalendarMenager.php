@@ -58,6 +58,7 @@ class CalendarMenager extends DatabaseEditor
         {
             if($_id > 0) 
             {
+                echo 'mama';
                 echo '<form action="' . $this->Target . '" method="post">';    
             }
             else     
@@ -69,7 +70,8 @@ class CalendarMenager extends DatabaseEditor
         
         while ($print = mysql_fetch_array($rekordy)) 
         {
-                
+            
+            echo '<input type="text" hidden="true" name="' . $this->ColsNames[0] . '"  value="' . $print[$this->ColsNames[0]] . '"/>'; //  Przekazanie Id elementu do usunięcia przez post -> powrót do CMS.php -> Wywolanie odpowiedniej metody
             echo '<a class="newsItem" href="CMS.php?function=calender&id=' . $print[$this->ColsNames[0]] . '">' . $print[$this->ColsNames[3]] . $this->DeleteButton .'</a>';
         }
         

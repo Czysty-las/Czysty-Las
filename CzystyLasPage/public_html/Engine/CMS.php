@@ -184,8 +184,9 @@ if (!empty($_POST['function'])) {
             header('Location: CMS.php?function=calendar');  //  Odswieżenie strony.
             break;
         case 'delete_calendar':
+            echo 'Tak.';
             $_SESSION['calendar']->Delete($_POST['Id']);
-            header('Location: CMS.php?function=calendar');  //  Odswieżenie strony.                
+        //    header('Location: CMS.php?function=calendar');  //  Odswieżenie strony.                
             break;
         case 'edit_calendar':
             $_SESSION['calendar']->Edit(array(
