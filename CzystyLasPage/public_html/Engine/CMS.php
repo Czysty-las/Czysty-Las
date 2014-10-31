@@ -13,6 +13,9 @@ include './CMSParts/UsersMenager/UsersMenager.php';
 include './CMSParts/UsersMenager/User.php';
 include '../Engine/CMSParts/UsersMenager/ProfileMenager.php';
 include './CMSParts/UpCyclingMenager/UpCyclingMenager.php';
+include './CMSParts/FileMenagment/FileMenagment.php';
+include './CMSParts/Prezentation/HTMLPrezentation.php';
+include './CMSParts/ConfigMenager/ConfigMenager.php';
 
 include './CMSParts/CMSContentScripts/UserMenu.php';
 
@@ -319,6 +322,9 @@ if (!empty($_POST['function'])) {
         echo ' <div class="Content">';
         if (isset($_GET['function'])) {
             switch ($_GET['function']) {
+                case 'config':
+                    $_SESSION['config']->GenerateHTML();
+                    break;
                 case 'upcycling':
                     $_SESSION['upcycling']->Show();
                     break;

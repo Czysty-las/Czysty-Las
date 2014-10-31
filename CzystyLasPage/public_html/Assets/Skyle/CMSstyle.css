@@ -957,6 +957,27 @@ table
 *   -------------------Koniec-------------------
 */
 
+/*
+*   Wszystkie style od działu Konfiguracji
+*   -------------------Start-------------------
+*/
+
+.configContainer
+{
+    width: 1000px;
+    height: 100%;
+    
+    margin: 0 auto;
+    padding: 1px;
+    background-color: #70a031;
+}
+
+
+/*
+*   Wszystkie style od działu Konfiguracji
+*   -------------------Koniec-------------------
+*/
+
 
 td
 {
