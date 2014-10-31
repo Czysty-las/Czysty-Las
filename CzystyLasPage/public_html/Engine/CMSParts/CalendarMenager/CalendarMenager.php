@@ -16,6 +16,8 @@ class CalendarMenager extends DatabaseEditor
     public function __construct($_colNames = array(), $_target) 
     {
         parent::__construct($_colNames, $_target, 'calendar');
+        
+        
     }
 
     public function Add($_params = array()) 
@@ -68,7 +70,7 @@ class CalendarMenager extends DatabaseEditor
         while ($print = mysql_fetch_array($rekordy)) 
         {
                 
-            echo '<a class="newsItem" href="CMS.php?function=calender&id=' . $print[$this->ColsNames[0]] . '">' . $print[$this->ColsNames[3]] .'</a>';
+            echo '<a class="newsItem" href="CMS.php?function=calender&id=' . $print[$this->ColsNames[0]] . '">' . $print[$this->ColsNames[3]] . $this->DeleteButton .'</a>';
         }
         
         echo '</div>';   //calendarList         
