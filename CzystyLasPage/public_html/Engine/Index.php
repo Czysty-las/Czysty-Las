@@ -21,7 +21,10 @@ include '../Engine/CMSParts/UsersMenager/ProfileMenager.php';
 include './CMSParts/UpCyclingMenager/UpCyclingMenager.php';
 include './CMSParts/FileMenagment/FileMenagment.php';
 include './CMSParts/Prezentation/HTMLPrezentation.php';
+
 include './CMSParts/ConfigMenager/ConfigMenager.php';
+include './CMSParts/ConfigMenager/Contact.php';
+
 
 session_start();    // Rozpoczęcie sesji. 
     
@@ -33,7 +36,7 @@ $_SESSION['profile'] = new ProfileMenager(array('Id', 'Name', 'Surname', 'Email'
 $_SESSION['tasks'] = new TaskMenager(array('Id', 'UserId', 'Description', 'Status'), 'CMS.php');
 $_SESSION['gallery'] = new GalleryMenager(array('Id', 'Title', 'Description', 'Date', 'UserId'), 'CMS.php');
 $_SESSION['upcycling'] = new UpCyclingMenager(array('Id', 'Photo', 'Title', 'Description'),'CMS.php');
-$_SESSION['config'] = new ConfigMenager("./Data/contact.conf");
+$_SESSION['config'] = new ConfigMenager("./Data/Config");
 
 $db = new Database('127.0.0.1', 'root', '', 'czysty-las-database');
 

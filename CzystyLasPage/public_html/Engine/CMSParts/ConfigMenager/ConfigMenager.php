@@ -11,29 +11,24 @@
  *
  * @author Lukasz
  */
-class ConfigMenager implements FileMenagment, HTMLPrezentation{
-    
-    private $FILE;
+class ConfigMenager implements HTMLPrezentation{
+    private $contact;
     
     public function __construct($path) {
-        $this->FILE = fopen($path, "w+");
-    }
-    public function LoadFroFile($param) {
         
-    }
-
-    public function ReadLine() {
-        if(!feof($this->FILE)){
-            return fgets($this->FILE);
+        $configfiles = scandir($path);
+        
+        $i = 0;
+        while (isset($configfiles[$i]))
+        {
+            switch ($configfiles[$i])
+            {
+                case "contact.cf":
+                    $this->contact = new Contact($path."/".$configfiles[$i]);
+                    break;
+            }
+            $i++;
         }
-    }
-
-    public function SaveLine($_line) {
-        
-    }
-
-    public function SaveToFile($param) {
-        
     }
 
     public function GenerateHTML() {
