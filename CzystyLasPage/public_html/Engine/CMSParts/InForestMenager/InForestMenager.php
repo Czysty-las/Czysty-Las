@@ -35,6 +35,11 @@ class InForestMenager extends DatabaseEditor {
     public function Delete($_param) {
         $q = "SELECT `Photo` FROM `inforest` WHERE `Id` = " . $_param;
         $ins1 = mysql_query($q);
+       /*
+        * Serwer na, którym docelowo ma znajdować się strona nie czyta konstrukajci
+        * mysql_fetch_array($ins1)['Name'];
+        * Do poprawy w tym skrypcoe jak i UpCycling
+        */
 
         $photoId = mysql_fetch_array($ins1)['Photo'];
 

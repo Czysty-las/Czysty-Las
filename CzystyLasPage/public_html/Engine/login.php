@@ -51,7 +51,7 @@ if(isset($_POST['loginButton']))
     }
     else
     {
-         header( 'Location: Index.php' ) ;
+         header( 'Location: login.php' ) ;
     }
 }
 else

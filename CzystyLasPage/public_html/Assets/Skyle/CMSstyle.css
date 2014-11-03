@@ -143,7 +143,7 @@ a:hover
     margin: 0 auto;
     min-width: 1000px;
     height: 100%;
-    
+
     background-color: #84af4b;
 }
 
@@ -154,20 +154,20 @@ a:hover
     min-width: 1000px;
     max-width: 1200px;
     padding: 1px;
-  //  overflow-y: scroll;
+    //  overflow-y: scroll;
 }
 
 @media screen and (min-height:800px)
 {
-.Content 
-{
-    margin: 0 auto;
-    height: 885px;
-    min-width: 1000px;
-    max-width: 1200px;
-//    background-color: blue;
-}
-    
+    .Content 
+    {
+        margin: 0 auto;
+        height: 885px;
+        min-width: 1000px;
+        max-width: 1200px;
+        //    background-color: blue;
+    }
+
 }
 /*
 *   Wszystkie style od przestrzeni kontentu
@@ -325,7 +325,7 @@ table
 {
     width: 1000px;
     margin: 0px auto;
-    
+
     border-style: solid;
     border-width: 1px;
 }
@@ -337,10 +337,10 @@ table
 {
     width: 30%;
     height: 100%;
-    
+
     overflow-y: scroll;
     float: left;
-    
+
     background-color: rgba(0,0,0,0.2);
 }
 
@@ -349,7 +349,7 @@ table
     width: 70%;
     height: 100%;
     background-color: rgba(0,0,0,0.2);
-    
+
     float: right;
     position: relative;
 }
@@ -387,19 +387,19 @@ table
 
 .newsAddItem
 {
-    
+
     width: 200px;
     height: 70px;
     display: block;
     line-height: 70px;
     text-align: center;
     vertical-align: middle;
-    
+
     position: absolute;
     top: 50%;
     left: 50%;
     margin: -50px 0 0 -70px;
-    
+
     background-color: #a7393b; 
 }
 
@@ -409,11 +409,11 @@ table
     height: 25px;
     float:right;
     margin: 5px 0 0 0 ;
-    
+
     border: 0;
     border-radius: 50%;
     background-color: rgba(0,0,0,0.4);
-    
+
     text-align: center;
     font-size: 20px;
     color: rgba(255,255,255,0.3);
@@ -428,12 +428,12 @@ table
     line-height: 70px;
     text-align: center;
     vertical-align: middle;
-    
+
     border: 0;
     color: white;
     font-size: 16px;
     margin: 0 auto;
-    
+
     background-color: #a7393b;    
 }
 
@@ -453,11 +453,11 @@ table
     height: 25px;
     float:right;
     margin: -35px 0 0 0 ;
-    
+
     border: 0;
     border-radius: 50%;
     background-color: rgba(0,0,0,0.4);
-    
+
     text-align: center;
     font-size: 20px;
     color: rgba(255,255,255,0.3);
@@ -499,19 +499,19 @@ table
 
 .calendarAddButton
 {
-    
+
     width: 180px;
     height: 70px;
     display: block;
     line-height: 70px;
     text-align: center;
     vertical-align: middle;
-    
+
     position:relative;
     top: 50%;
     left: 20%;
     margin: -50px 0 0 -70px;
-    
+
     background-color: #a7393b; 
 }
 
@@ -529,9 +529,9 @@ table
 {
     width: 1000px;
     height: 100%;
-    
+
     margin: 0 auto;
-    
+
     overflow-y: scroll;
 }
 
@@ -560,7 +560,7 @@ table
 
     overflow-y: scroll;
     overflow-x: hidden;
-    
+
     background-color: rgba(255,255,255,0.25); 
 }
 
@@ -608,7 +608,7 @@ table
     text-align: center;
     vertical-align: middle;
     margin: 10px auto 10px;
-    
+
     background-color: #a7393b;     
 }
 
@@ -646,7 +646,7 @@ table
     font-size: 16px;
     color: white;
     background-color: rgba(255,255,255,0.3);
-    
+
 }
 
 .profileContainer p
@@ -664,7 +664,7 @@ table
     width: 80%;
     height: 50px;
     float: left;
-    
+
     border: 0;
     font-size: 16px;
     color: white;
@@ -677,11 +677,11 @@ table
     margin-right: 30px;
     width: 600px;
     height: 300px;
-    
+
     overflow-y: scroll;
-    
+
     float: right;
-    
+
     background-color: #84af4b;
 }
 
@@ -723,7 +723,7 @@ table
 {
     width: 200px;
     height: 50px;
-    
+
     display: block;
     margin: 10px 30px;
 
@@ -732,7 +732,7 @@ table
     text-align: center;
     vertical-align: middle;
     float: left;
-    
+
     background-color: #a7393b;
 }
 
@@ -771,7 +771,7 @@ table
     width: 20%;
     height: 50px;
     float:left;
-    
+
     border: 0;
     font-size: 16px;
     color: white;
@@ -791,7 +791,7 @@ table
     width: 60%;
     height: 50px;
     float: left;
-    
+
     border: 0;
     font-size: 16px;
     color: white;
@@ -808,9 +808,9 @@ table
     width: 100%;
     height: 50px;
     float: left;
-    
+
     border: 0;
-//    font-size: 16px;
+    //    font-size: 16px;
     color: white;
     background-color: #a7393b;
 }
@@ -825,7 +825,7 @@ table
     line-height: 50px;
     text-align: center;
     vertical-align: middle;
-    
+
     background-color: #a7393b;
 }
 
@@ -834,7 +834,7 @@ table
     width: 960px;
     height: 45%;
     margin: 10px auto;
-    
+
     overflow-y: scroll;
 
     background-color: #84af4b; 
@@ -897,19 +897,19 @@ table
 
 .galleryImage
 {
-  width: 100px;
-  height: 100px;
-  background-size: cover;
-  float: left;
-  margin: 3px;
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    float: left;
+    margin: 3px;
 }
 .mainButtons .galleryImage
 {
-  width: 100px;
-  height: 100px;
-  background-size: cover;
-  float: none;
-  margin: 3px;
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    float: none;
+    margin: 3px;
 }
 /*
 .galleryImage:hover
@@ -966,12 +966,51 @@ table
 {
     width: 1000px;
     height: 100%;
-    
+
     margin: 0 auto;
     padding: 1px;
     background-color: #70a031;
 }
 
+.contactContainer
+{
+    //   background-color: bisque;
+    width: 100%;
+    height: 300px;
+}
+
+.contactContainer table
+{
+    border: 0;
+    border-spacing: 0;
+    height: 100%;
+}
+
+.contactContainer table tr
+{
+    font-size: 16px;
+    color: white;
+    background-color: #84af4b;
+}
+
+.contactContainer table td
+{
+    //    background-color: aquamarine;
+    padding: 0;
+}
+
+.contactContainer table td input
+{
+    width: 100%;
+    height: 100%;
+    border: 0;
+    padding: 0;
+
+    font-size: 16px;
+    color: white;
+    background-color: rgba(255,255,255,0.3);
+
+}
 
 /*
 *   Wszystkie style od działu Konfiguracji
@@ -1005,13 +1044,13 @@ button
     width: 600px;
     height: 205px;
     background-color: bisque;
-    
+
     margin: 0 auto;
 }
 
 .loginInputs
 {
-    
+
 }
 
 .loginTable

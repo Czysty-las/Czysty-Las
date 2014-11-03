@@ -30,11 +30,15 @@ class ConfigMenager implements HTMLPrezentation{
             $i++;
         }
     }
-
+    public function ConfigContact()
+    {
+        return $this->contact;
+    }
+    
     public function GenerateHTML() {
+        $this->contact->Load();
         echo '<div class="configContainer">';
-        echo '<form>';
-        echo '</form>';
+        $this->contact->GenerateHTML();
         echo '</div>';
     }
 

@@ -16,5 +16,6 @@ interface FileMenagment {
     public function ReadLine();
     public function SaveLine($_line);
     public function SaveToFile($param);
-    //put your code here
+    public function Save($toSave = array());
+    public function Load();
 }

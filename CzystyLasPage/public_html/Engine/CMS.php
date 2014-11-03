@@ -15,7 +15,9 @@ include '../Engine/CMSParts/UsersMenager/ProfileMenager.php';
 include './CMSParts/UpCyclingMenager/UpCyclingMenager.php';
 include './CMSParts/FileMenagment/FileMenagment.php';
 include './CMSParts/Prezentation/HTMLPrezentation.php';
+
 include './CMSParts/ConfigMenager/ConfigMenager.php';
+include './CMSParts/ConfigMenager/Contact.php';
 
 include './CMSParts/CMSContentScripts/UserMenu.php';
 
@@ -33,6 +35,17 @@ $db = new Database('127.0.0.1', 'root', '', 'czysty-las-database');
 if (!empty($_POST['function'])) {
     switch ($_POST['function']) {
         
+        case 'contact_save':
+            $_SESSION['config']->ConfigContact()->Save(array(
+                $_POST['boss'],                 // 0
+                $_POST['bossPhone'],            // 1
+                $_POST['veBoss'],               // 2
+                $_POST['veBossPhone'],          // 3
+                $_POST['fb'],                   // 4
+                $_POST['email'],                // 5
+                ));
+            header('Location: CMS.php?function=config');
+            break;
         /**
          * Sekcja zadań.
          */
@@ -355,7 +368,7 @@ if (!empty($_POST['function'])) {
                     break;
                 case "logoff":
                     session_destroy();
-                    header('Location: Index.php');
+                    header('Location: login.php');
                     break;
                 case "menu":
                     include '../Engine/CMSParts/Options.html';
@@ -367,7 +380,7 @@ if (!empty($_POST['function'])) {
         echo '</body>';
         echo '</htam>';
     } else {
-        echo'Aby uzyskać dostęp zakoguj się. <a href="../Engine/Index.php">Logowanie</a>';
+        echo'Aby uzyskać dostęp zakoguj się. <a href="../Engine/login.php">Logowanie</a>';
     }
 }
 ?>

@@ -35,7 +35,11 @@ class UpCyclingMenager extends DatabaseEditor {
     public function Delete($_param) {
        $q = "SELECT `Photo` FROM `upcycling` WHERE `Id` = ".$_param; 
        $ins1 = mysql_query($q);
-       
+       /*
+        * Serwer na, którym docelowo ma znajdować się strona nie czyta konstrukajci
+        * mysql_fetch_array($ins1)['Name'];
+        * Do poprawy w tym skrypcoe jak i w lesie
+        */
        $photoId = mysql_fetch_array($ins1)['Photo'];
        
        $q = "SELECT `Name` FROM `images` WHERE `Id` = ".$photoId;
