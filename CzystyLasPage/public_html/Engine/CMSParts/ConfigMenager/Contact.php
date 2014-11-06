@@ -11,7 +11,7 @@
  *
  * @author Lukasz
  */
-class Contact implements FileMenagment, HTMLPrezentation {
+class Contact implements HTMLPrezentation {
 
     private $content = array();
     private $path = '';
@@ -23,27 +23,12 @@ class Contact implements FileMenagment, HTMLPrezentation {
         $this->path = $path;
         //    $this->Load();
     }
-
-    public function LoadFroFile($param) {
-        
-    }
-
-    public function ReadLine() {
-        
-    }
-
-    public function SaveLine($_line) {
-        
-    }
-
-    public function SaveToFile($param) {
-        
-    }
-
+    
     public function GenerateHTML() {
         echo '<form action="CMS.php" method="post">';
         echo '<div class="contactContainer">';
         echo '<table>';
+        echo '<td colspan="2">Dane kontaktowe strony</td>';
         for ($i = 0; $i < count($this->content); $i++) {
             echo '<tr>';
             switch ($this->content[$i][0]) {

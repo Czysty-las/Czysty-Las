@@ -3,11 +3,14 @@
 /*
  * Skrypt ten ma za zadanie wyświetlnić newsy na stronie. 
  */
-
+/*
 include '../public_html/Engine/CMSParts/Dadabase/Database.php';
 include '../public_html/PageContentScripts/ContentClass/NewsDisplayer.php';
 
 $database = new Database('127.0.0.1', 'root', '', 'czysty-las-database');
+*/
+
+include './PageContentScripts/DataBaseConnect.php';
 
 session_start();
 

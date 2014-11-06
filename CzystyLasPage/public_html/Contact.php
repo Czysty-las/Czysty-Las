@@ -17,10 +17,9 @@ echo '</head>';
            include './PageParts/pageNav.html';              // Nawigacja serwisu
            include './PageParts/socialNetworkNav.html';     // Nawigacja sieci społecznościwych.
            
-           /*
-            * Tymczasowy kontent indeksu
-            * Zastąpić do odpowiednim skryptem.
-            */
+           echo '  <div class="content">';
+            include '../public_html/PageContentScripts/ContactScript.php';
+           echo '</div>';
            
         echo '</div>';
      echo '<body>';
