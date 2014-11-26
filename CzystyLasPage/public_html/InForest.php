@@ -5,7 +5,7 @@ echo '<head>';
     //Dołaczenie nagłówka z osobnego pliku
     include './PageParts/head.html';
     //Styl wlaściwy dla podstrony
-    echo'<link rel="stylesheet" type="text/css" href="Assets/Skyle/InForest.css">';
+    echo'<link rel="stylesheet" type="text/css" href="Assets/Skyle/InForestStyle.css">';
 echo '</head>';    
     //Znacznik ciała strony
      echo '<body>';
@@ -20,6 +20,10 @@ echo '</head>';
            echo '  <div class="content">';
             include '../public_html/PageContentScripts/InForestScript.php';
            echo '</div>';
+           
+           if (isset($_GET['Id']))
+                echo '<div class="footer"></div>';
+
            
         echo '</div>';
      echo '<body>';

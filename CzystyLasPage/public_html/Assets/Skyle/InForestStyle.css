@@ -8,3 +8,102 @@ and open the template in the editor.
     Author     : Lukasz
 */
 
+.content
+{
+    background-color: rgba(0,0,0,0.7);
+    width: 600px;
+    min-height: 700px;
+    margin: 100px 276px 100px;
+    float: none;
+}
+
+.title
+{
+    width: 100%;
+    height: 30px;
+    display: block;
+    float: left;
+    padding: 0;
+    line-height: 30px;
+    font-size: 25px;
+    font-family: tahoma;
+}
+
+.inforestItem p
+{
+    width: 100%;
+    box-sizing: border-box;
+    border: 0;
+    text-align: justify; 
+}
+
+.inforestItem
+{
+    width: 100%;
+    height: 260px;
+    display: block;
+    overflow: auto;
+
+    text-decoration: none;
+    color: white;
+    margin-top: 10px;
+}
+
+.inforestItem:hover
+{
+    background-color: rgba(255,255,255,0.3);
+}
+
+.inforestItemDetails
+{
+    color: white;
+    width: 600px;
+    min-height: 700px;
+}
+
+.inforestItemDetails .title
+{
+    width: 100%;
+    height: 40px;
+    display: block;
+    float: left;
+    padding: 0;
+    line-height: 40px;
+    font-size: 35px;
+    font-family: tahoma;
+
+    box-sizing: border-box;
+    padding-left: 10px;
+}
+
+.inforestItemDetails .inforesrImage
+{
+    margin: 10px 25px;
+    width: 550px;
+    height: 400px;
+
+    float: left;
+    margin-right: 10px;
+    background-size: cover;
+}
+
+.inforestItemDetails p
+{
+    margin: 10px 25px;
+    padding: 0;
+    width: 550px;
+    box-sizing: border-box;
+    border: 0;
+    text-align: justify; 
+}
+
+
+.inforesrImage
+{
+    width: 40%;
+    height: 200px;
+
+    float: left;
+    margin-right: 10px;
+    background-size: cover;
+}
